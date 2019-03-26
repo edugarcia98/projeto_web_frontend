@@ -24,7 +24,7 @@ Description <input type="text" [(ngModel)] = "selectedObjetivo.description"/><br
 <br><br>
 
 <h3>Adicionar Novo Objetivo</h3>
-<input #itemTitle type='text' placeholder='Title'>
-<input #itemDescription type='text' placeholder='Description'>
-<button (click)="add(itemTitle.value, itemDescription.value)">Add</button>
+<input #itemTitle type='text' placeholder='Title'><br>
+<input #itemDescription type='text' placeholder='Description'><br>
+<button (click)="add(itemTitle.value, itemDescription.value)">Add</button><br>
 {{ error?.message }}

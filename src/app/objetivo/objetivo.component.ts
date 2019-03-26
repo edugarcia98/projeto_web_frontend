@@ -28,6 +28,7 @@ export class ObjetivoComponent implements OnInit {
     this.api.createObjetivo(itemTitle, itemDescription).subscribe(
       (item: Objetivo) => this.items.push(item)
     );
+    location.reload();
   }
 
   delete(id: number) {
@@ -36,7 +37,7 @@ export class ObjetivoComponent implements OnInit {
         this.items.findIndex(item => item.id === id)
       )
     );
-    location.reload()
+    location.reload();
   }
 
   objetivoClicked(objetivo: Objetivo)
@@ -58,5 +59,4 @@ export class ObjetivoComponent implements OnInit {
     );
     location.reload();
   }_
-
 }

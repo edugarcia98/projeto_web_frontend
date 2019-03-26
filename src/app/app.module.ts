@@ -4,14 +4,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { ObjetivoService } from 'src/app/objetivo/objetivo.service';
+import { CompetenciaService } from 'src/app/competencia/competencia.service';
 import { AppComponent } from './app.component';
 import { ObjetivoComponent } from './objetivo/objetivo.component';
+import { CompetenciaComponent } from './competencia/competencia.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ObjetivoComponent,
+    CompetenciaComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +23,7 @@ import { ObjetivoComponent } from './objetivo/objetivo.component';
   ],
   providers: [
     ObjetivoService,
+    CompetenciaService,
   ],
   bootstrap: [
     AppComponent,
