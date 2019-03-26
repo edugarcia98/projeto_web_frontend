@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ApiService } from './api.service';
+import { ObjetivoService } from './objetivo.service';
 
-describe('ApiService', () => {
+describe('ObjetivoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ApiService = TestBed.get(ApiService);
+    const service: ObjetivoService = TestBed.get(ObjetivoService);
     expect(service).toBeTruthy();
   });
 });

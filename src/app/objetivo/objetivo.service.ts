@@ -3,36 +3,35 @@ import { HttpClient } from '@angular/common/http';
 import { Objetivo } from './objetivo';
 
 @Injectable()
-export class ApiService {
+export class ObjetivoService {
 
-  private apiRoot = 'http://localhost:8000/';
+  private objetivoRoot = 'http://localhost:8000/';
 
   constructor(private http: HttpClient) { }
 
 
   getObjetivos() {
-    return this.http.get(this.apiRoot.concat('objetivo/'));
+    return this.http.get(this.objetivoRoot.concat('objetivo/'));
   }
 
   showOneObjetivo(id: number)
   {
-    return this.http.get(this.apiRoot.concat(`objetivo/${id}/`));
+    return this.http.get(this.objetivoRoot.concat(`objetivo/${id}/`));
   }
 
   createObjetivo(title: string, description: string) {
     return this.http.post(
-      this.apiRoot.concat('objetivo/'),
+      this.objetivoRoot.concat('objetivo/'),
       { title, description }
     );
   }
 
   updateObjetivo(id: number, title: string, description: string)
   {
-    return this.http.put(this.apiRoot.concat(`objetivo/${id}/`), {title, description})
+    return this.http.put(this.objetivoRoot.concat(`objetivo/${id}/`), {title, description})
   }
 
   deleteObjetivo(id: number) {
-    return this.http.delete(this.apiRoot.concat(`objetivo/${id}/`));
+    return this.http.delete(this.objetivoRoot.concat(`objetivo/${id}/`));
   }
 }
-
