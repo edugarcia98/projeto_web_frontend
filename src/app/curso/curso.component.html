@@ -1,0 +1,31 @@
+<div style="text-align:center">
+  <h1>
+    Cursos
+  </h1>
+</div>
+<ul>
+  <li *ngFor="let item of items">
+    <h2>
+      {{ item.title }}
+      <button (click)="delete(item.id)">DELETE</button> 
+      <button (click)="cursoClicked(item)">DISPLAY</button>
+      <button (click)="goToObjetivos(item)">OBJETIVO</button>
+    </h2>
+  </li>
+</ul>
+
+<hr>
+<br><br>
+
+<h3>Mostrar ou Editar Curso</h3>
+Title <input type="text" [(ngModel)] = "selectedCurso.title"/><br>
+Description <input type="text" [(ngModel)] = "selectedCurso.description"/><br>
+<button (click)="update(selectedCurso.id, selectedCurso.title,
+  selectedCurso.description)">UPDATE</button>
+<br><br>
+
+<h3>Adicionar Novo Curso</h3>
+<input #itemTitle type='text' placeholder='Title'><br>
+<input #itemDescription type='text' placeholder='Description'><br>
+<button (click)="add(itemTitle.value, itemDescription.value)">Add</button><br>
+{{ error?.message }}

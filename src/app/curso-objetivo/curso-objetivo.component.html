@@ -1,0 +1,21 @@
+<div style="text-align:center">
+  <h1>
+    Objetivos de {{ cursoTitle }}
+  </h1>
+</div>
+<ul>
+  <li *ngFor="let item of items">
+    <h2>
+      {{ item.title }}
+    </h2>
+  </li>
+</ul>
+
+<hr>
+<br><br>
+
+<h3>Adicionar Novo Objetivo</h3>
+<input #itemTitle type='text' placeholder='Title'><br>
+<input #itemDescription type='text' placeholder='Description'><br>
+<button (click)="add(itemTitle.value, itemDescription.value, cursoId, cursoTitle, cursoDescription)">Add</button><br>
+{{ error?.message }}
