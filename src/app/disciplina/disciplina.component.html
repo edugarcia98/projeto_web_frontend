@@ -1,0 +1,27 @@
+<div style="text-align:center">
+  <h1>
+    Disciplina
+  </h1>
+</div>
+<ul>
+  <li *ngFor="let item of items">
+    <h2>
+      {{ item.title }}
+      <button (click)="delete(item.id)">DELETE</button>
+      <button (click)="objetivoClicked(item)">DISPLAY</button>
+    </h2>
+  </li>
+</ul>
+
+<hr>
+<br><br>
+
+
+<h3>Adicionar Novo Disciplina</h3>
+<input #itemTitle type='text' placeholder='Title'><br>
+<select class="form-control" (change)="onSelect($event.target.value)" id="sel1">
+  <option *ngFor ="let itemTipo of tipoDiscs" [value]= "itemTipo.id">{{itemTipo.title}}</option>
+</select>
+
+<button (click)="add(itemTitle.value)">Add</button><br>
+{{ error?.message }}
