@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CursoService } from './curso.service';
 import { Curso } from './curso'
-import { CursoObjetivoService } from 'src/app/curso-objetivo/curso-objetivo.service';
-import { CursoObjetivo } from 'src/app/curso-objetivo/curso-objetivo';
 import { Router } from '@angular/router';
 
 @Component({
@@ -65,6 +63,6 @@ export class CursoComponent implements OnInit {
 
   goToObjetivos(item)
   {
-    this.router.navigate(['/curso-objetivo', item.id]);
+    this.router.navigate([`curso/${item.id}/objetivo`]);
   }
 }
