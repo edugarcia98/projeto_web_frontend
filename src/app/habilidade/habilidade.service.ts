@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Habilidade } from './habilidade'
+import { Habilidade } from './habilidade';
 import { Curso } from '../curso/curso';
 
 @Injectable()
