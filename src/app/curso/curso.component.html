@@ -8,26 +8,45 @@
 </div>
 <ul>
   <li *ngFor="let item of items">
-    <h2>
+    <h3>
       {{ item.title }}
-      <button (click)="delete(item.id)">DELETE</button> 
-      <button (click)="cursoClicked(item)">DISPLAY</button>
-      <button (click)="goToObjetivos(item)">OBJETIVO</button>
-      <button (click)="goToCompetencias(item)">COMPETÊNCIA</button>
-      <button (click)="goToHabilidades(item)">HABILIDADE</button>
-    </h2>
+      <button type="button" class="btn btn-primary" (click)="delete(item.id)">DELETE</button> 
+      <button type="button" class="btn btn-primary" (click)="cursoClicked(item)">DISPLAY</button>
+      <button type="button" class="btn btn-primary" (click)="goToObjetivos(item)">OBJETIVO</button>
+      <button type="button" class="btn btn-primary" (click)="goToCompetencias(item)">COMPETÊNCIA</button>
+      <button type="button" class="btn btn-primary" (click)="goToHabilidades(item)">HABILIDADES</button>
+    </h3>
   </li>
 </ul>
 
-<h3>Mostrar ou Editar Curso</h3>
-Title <input type="text" [(ngModel)] = "selectedCurso.title"/><br>
-Description <input type="text" [(ngModel)] = "selectedCurso.description"/><br>
-<button (click)="update(selectedCurso.id, selectedCurso.title,
-  selectedCurso.description)">UPDATE</button>
-<br><br>
+<div class="d-inline-flex p-2 bd-highlight"><h3>Adicionando Novo Curso </h3></div>
+<br>
+<br>
+<br>
 
-<h3>Adicionar Novo Curso</h3>
-<input #itemTitle type='text' placeholder='Title'><br>
-<input #itemDescription type='text' placeholder='Description'><br>
-<button (click)="add(itemTitle.value, itemDescription.value)">Add</button><br>
+<h5>Adicionar Novo Curso:</h5>
+
+    <div class="form-group mx-sm-3 mb-2">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <label><h6>Nome:</h6></label>
+        &nbsp;&nbsp;&nbsp;&nbsp;<input #itemTitle type='text' placeholder='Nome:'><br>
+        <label><h6>Descrição:</h6></label>
+        &nbsp;&nbsp;&nbsp;&nbsp;<input #itemDescription type='text' placeholder='Descrição:'><br>
+      <button type="button" class="btn btn-primary"(click)="add(itemTitle.value, itemDescription.value)">Adicionar</button><br>
+    </div>
+
+
+<br><br>
+<h5>Mostrar ou Editar Curso:</h5>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label><h6>Nome:</h6></label>
+      &nbsp;&nbsp;&nbsp;&nbsp;<input  type="text" [(ngModel)] = "selectedCurso.title"/><br>
+      <label>
+        <h6>Descrição:</h6>
+        </label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)] = "selectedCurso.description"/><br>
+      <button type="button" class="btn btn-primary" (click)="update(selectedCurso.id, selectedCurso.title,
+      selectedCurso.description)">Update</button>
+    </div>
+
 {{ error?.message }}

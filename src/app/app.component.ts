@@ -4,6 +4,7 @@ import { Objetivo } from 'src/app/objetivo/objetivo';
 import { CompetenciaService } from 'src/app/competencia/competencia.service';
 import { Competencia } from 'src/app/competencia/competencia';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
