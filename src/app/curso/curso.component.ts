@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./curso.component.css']
 })
 export class CursoComponent implements OnInit {
-
+  public isCollapsed = false;
   items: Curso[];
   error: any;
   selectedCurso;
@@ -17,6 +17,7 @@ export class CursoComponent implements OnInit {
   constructor(private api: CursoService, private router: Router) {
     this.selectedCurso = {id: -1, title: '', description: ''};
   }
+  
 
   ngOnInit() {
     this.api.getCursos().subscribe(
