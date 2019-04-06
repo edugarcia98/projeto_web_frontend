@@ -15,8 +15,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'curso',                 component: CursoComponent },
-  { path: 'curso/:id/objetivo',    component: ObjetivoComponent },
-  { path: 'curso/:id/competencia', component: CompetenciaComponent }
+  { path: 'curso/:id/objetivos',    component: ObjetivoComponent },
+  { path: 'curso/:id/competencias', component: CompetenciaComponent }
 ];
 
 

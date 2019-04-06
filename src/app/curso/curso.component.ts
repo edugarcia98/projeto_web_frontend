@@ -63,6 +63,6 @@ export class CursoComponent implements OnInit {
 
   goToObjetivos(item)
   {
-    this.router.navigate([`curso/${item.id}/objetivo`]);
+    this.router.navigate([`curso/${item.id}/objetivos`]);
   }
 }

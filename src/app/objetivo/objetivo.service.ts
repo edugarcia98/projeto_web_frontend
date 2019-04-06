@@ -20,16 +20,13 @@ export class ObjetivoService {
     return this.http.get(this.objetivoRoot.concat(`objetivo/${id}/`));
   }
 
-  createObjetivo(title: string, description: string) {
-    return this.http.post(
-      this.objetivoRoot.concat('objetivo/'),
-      { title, description }
-    );
+  createObjetivo(title: string, description: string, curso_id: number) {
+    return this.http.post(this.objetivoRoot.concat('objetivo/'), {title, description, curso_id});
   }
 
-  updateObjetivo(id: number, title: string, description: string)
+  updateObjetivo(id: number, title: string, description: string, curso_id: number)
   {
-    return this.http.put(this.objetivoRoot.concat(`objetivo/${id}/`), {title, description})
+    return this.http.put(this.objetivoRoot.concat(`objetivo/${id}/`), {title, description, curso_id})
   }
 
   deleteObjetivo(id: number) {

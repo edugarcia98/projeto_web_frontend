@@ -17,15 +17,18 @@ export class ObjetivoComponent implements OnInit {
   selectedCurso: Curso;
   selectedObjetivo;
   public cursoId;
+  public new_objetivo: any;
 
   constructor(private api: ObjetivoService,
               private route: ActivatedRoute,
               private apiCurso: CursoService) {
     this.selectedObjetivo = {id: -1, title: '', description: '', curso: null};
     this.selectedCurso = {id: -1, title: '', description: ''};
+    this.items = [];
   }
 
   ngOnInit() {
+    this.new_objetivo = {};
 
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.cursoId = id;
@@ -38,13 +41,23 @@ export class ObjetivoComponent implements OnInit {
     )
 
     this.api.getObjetivos().subscribe(
-      (items: Objetivo[]) => this.items = items,
-      (error: any) => this.error = error
+      (items: Objetivo[]) => 
+      {
+        console.log(this.items);
+        items.forEach
+        (
+          (obj: Objetivo) =>
+          {
+            if(obj.curso.id == this.cursoId)
+              this.items.push(obj);
+          }
+        )
+      }
     );
   }
 
   add(itemTitle: string, itemDescription: string) {
-    this.api.createObjetivo(itemTitle, itemDescription).subscribe(
+    this.api.createObjetivo(itemTitle, itemDescription, this.cursoId).subscribe(
       (item: Objetivo) => this.items.push(item)
     );
     location.reload();
@@ -70,7 +83,7 @@ export class ObjetivoComponent implements OnInit {
 
   update(id: number, title: string, description: string)
   {
-    this.api.updateObjetivo(id, title, description).subscribe(
+    this.api.updateObjetivo(id, title, description, this.cursoId).subscribe(
       (item: Objetivo) => {
         item.title = title;
         item.description = description;
