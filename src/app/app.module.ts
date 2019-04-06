@@ -11,12 +11,15 @@ import { CompetenciaComponent } from './competencia/competencia.component';
 import { CursoComponent } from './curso/curso.component';
 import { CursoService } from './curso/curso.service';
 import { RouterModule, Routes } from '@angular/router';
+import { DisciplinaComponent }  from './disciplina/disciplina.component'
+import { DisciplinaService }    from './disciplina/disciplina.service'
 
 
 const appRoutes: Routes = [
   { path: 'curso',                 component: CursoComponent },
   { path: 'curso/:id/objetivos',    component: ObjetivoComponent },
-  { path: 'curso/:id/competencias', component: CompetenciaComponent }
+  { path: 'curso/:id/competencias', component: CompetenciaComponent },
+  { path: 'disciplina', component: DisciplinaComponent },
 ];
 
 
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     ObjetivoComponent,
     CompetenciaComponent,
-    CursoComponent
+    CursoComponent,
+    DisciplinaComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,7 @@ const appRoutes: Routes = [
     ObjetivoService,
     CompetenciaService,
     CursoService,
+    DisciplinaService
   ],
   bootstrap: [
     AppComponent,

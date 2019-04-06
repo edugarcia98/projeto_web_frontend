@@ -1,7 +1,7 @@
 <div style="text-align:center">
-  <h1>
-    Disciplina
-  </h1>
+<div class="p-3 mb-2 bg-info text-white">
+   <h1>Disciplina</h1>
+</div>
 </div>
 <ul>
   <li *ngFor="let item of items">
@@ -13,15 +13,37 @@
   </li>
 </ul>
 
-<hr>
+
+
+
 <br><br>
 
+<div class="d-inline-flex p-2 bd-highlight"><h3>Adicionando Novo Disciplina </h3></div>
+<br>
+<br>
+<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <label><h6>Nome da Disciplina:</h6></label>
+      <input #itemTitle type='text' placeholder='Nome'>
+      <br>
+    </div>
+    <div class="form-group">
+      <label><h6>Tipo da Disciplina:</h6></label>
+      <select class="form-control" (change)="onSelect($event.target.value)" id="sel1" style="width: 100px">
+        <option style="width: 50px" *ngFor ="let itemTipo of tipoDiscs" [value]= "itemTipo.id">{{itemTipo.title}}</option>
+      </select>
+      <br>
+    </div>
+    <div class="form-group">
+      <br>
+      <label><h6>&nbsp;&nbsp;&nbsp;&nbsp;Creditos:</h6></label>
+      <select class="form-control" (change)="onSelect($event.target.value)" id="sel1" style="width: 100px">
+        <option style="width: 50px" *ngFor ="let cred of creditos" [value]= "cred">{{cred}}</option>
+      </select>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="add(itemTitle.value)">Adicionar</button><br>
+</form>
+    
 
-<h3>Adicionar Novo Disciplina</h3>
-<input #itemTitle type='text' placeholder='Title'><br>
-<select class="form-control" (change)="onSelect($event.target.value)" id="sel1">
-  <option *ngFor ="let itemTipo of tipoDiscs" [value]= "itemTipo.id">{{itemTipo.title}}</option>
-</select>
 
-<button (click)="add(itemTitle.value)">Add</button><br>
 {{ error?.message }}

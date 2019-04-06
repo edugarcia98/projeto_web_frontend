@@ -19,6 +19,9 @@ export class DisciplinaComponent implements OnInit {
   tipoDiscSelecionado: TipoDisc;
   error: any;
   selectedDisciplina;
+  creditos: Number[] = [
+    1,2,3,4,5,6,7,8,9,10
+  ]
 
   constructor(private api: DisciplinaService) {
     this.selectedDisciplina = {id: -1, title: '', tipo: ''};
