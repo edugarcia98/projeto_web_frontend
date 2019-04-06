@@ -1,6 +1,6 @@
-import { Curso } from '../curso/curso';
+import { Curso } from '../curso/curso'
 
-export interface Competencia {
+export interface Habilidade {
     id: number;
     title: string;
     description: string;

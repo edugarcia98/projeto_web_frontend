@@ -1,0 +1,30 @@
+<div style="text-align:center">
+  <h1>
+    Habilidades de {{ selectedCurso.title }}
+  </h1>
+</div>
+<ul>
+  <li *ngFor="let item of items">
+    <h2>
+      {{ item.title }}
+      <button (click)="delete(item.id)">DELETE</button>
+      <button (click)="habilidadeClicked(item)">DISPLAY</button>
+    </h2>
+  </li>
+</ul>
+
+<hr>
+<br><br>
+
+<h3>Mostrar ou Editar Habilidade</h3>
+Title <input type="text" [(ngModel)] = "selectedHabilidade.title"/><br>
+Description <input type="text" [(ngModel)] = "selectedHabilidade.description"/><br>
+<button (click)="update(selectedHabilidade.id, selectedHabilidade.title,
+selectedHabilidade.description)">UPDATE</button>
+<br><br>
+
+<h3>Adicionar Nova Habilidade</h3>
+<input #itemTitle type='text' placeholder='Title'><br>
+<input #itemDescription type='text' placeholder='Description'><br>
+<button (click)="add(itemTitle.value, itemDescription.value)">Add</button><br>
+{{ error?.message }}

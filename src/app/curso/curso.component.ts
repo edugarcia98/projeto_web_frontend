@@ -65,4 +65,14 @@ export class CursoComponent implements OnInit {
   {
     this.router.navigate([`curso/${item.id}/objetivos`]);
   }
+
+  goToCompetencias(item)
+  {
+    this.router.navigate([`curso/${item.id}/competencias`]);
+  }
+
+  goToHabilidades(item)
+  {
+    this.router.navigate([`curso/${item.id}/habilidades`]);
+  }
 }
