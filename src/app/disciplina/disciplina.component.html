@@ -1,49 +1,74 @@
 <div style="text-align:center">
-<div class="p-3 mb-2 bg-info text-white">
-   <h1>Disciplina</h1>
-</div>
-</div>
-<ul>
-  <li *ngFor="let item of items">
-    <h2>
-      {{ item.title }}
-      <button (click)="delete(item.id)">DELETE</button>
-      <button (click)="objetivoClicked(item)">DISPLAY</button>
-    </h2>
-  </li>
-</ul>
+  <div class="p-3 mb-2 bg-info text-white">
+     <h1>Disciplina</h1>
+  </div>
+  </div>
+  <ul>
+    <li *ngFor="let item of items">
+      <h2>
+        {{ item.title }}
+        <button (click)="delete(item.id)">DELETE</button>
+        <button (click)="disciplinaClicked(item)">DISPLAY</button>
+      </h2>
+    </li>
+  </ul>
+  <br>
+  <br>
+  <div class="d-inline-flex p-2 bd-highlight"><h3>Adicionar Nova Disciplina </h3></div>
+  <br>
+  <br>
 
+  <form class="form-inline">
+      <div class="form-group mx-sm-3 mb-2">
+        <label><h6>Nome da Disciplina:</h6></label>
+        <input #itemTitle type='text' placeholder='Nome'>
+        <br>
+      </div>
+      <div class="form-group">
+        <label><h6>Tipo da Disciplina:</h6></label>
+        <select [(ngModel)]="selectedTipo" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let t of tipoDiscs" [ngValue]="t.id">{{t.title}}</option>
+        </select>
+        <br>
+      </div>
+      <div class="form-group">
+        <br>
+        <label><h6>&nbsp;&nbsp;&nbsp;&nbsp;Creditos:</h6></label>
+        <select [(ngModel)]="selectedCredito" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let c of creditos" [ngValue]="c">{{c}}</option>
+        </select>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" (click)="add(itemTitle.value)">Adicionar</button><br>
+  </form>
 
+  <br>
+  <br>
+  <div class="d-inline-flex p-2 bd-highlight"><h3>Editar ou Mostrar Disciplina </h3></div>
+  <br>
+  <br>
 
-
-<br><br>
-
-<div class="d-inline-flex p-2 bd-highlight"><h3>Adicionando Novo Disciplina </h3></div>
-<br>
-<br>
-<form class="form-inline">
-    <div class="form-group mx-sm-3 mb-2">
-      <label><h6>Nome da Disciplina:</h6></label>
-      <input #itemTitle type='text' placeholder='Nome'>
-      <br>
-    </div>
-    <div class="form-group">
-      <label><h6>Tipo da Disciplina:</h6></label>
-      <select class="form-control" (change)="onSelect($event.target.value)" id="sel1" style="width: 100px">
-        <option style="width: 50px" *ngFor ="let itemTipo of tipoDiscs" [value]= "itemTipo.id">{{itemTipo.title}}</option>
-      </select>
-      <br>
-    </div>
-    <div class="form-group">
-      <br>
-      <label><h6>&nbsp;&nbsp;&nbsp;&nbsp;Creditos:</h6></label>
-      <select class="form-control" (change)="onSelect($event.target.value)" id="sel1" style="width: 100px">
-        <option style="width: 50px" *ngFor ="let cred of creditos" [value]= "cred">{{cred}}</option>
-      </select>
-    </div>&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="button" class="btn btn-primary" (click)="add(itemTitle.value)">Adicionar</button><br>
-</form>
-    
-
-
-{{ error?.message }}
+  <div class="form-group mx-sm-3 mb-2">
+    <label><h6>Nome da Disciplina:</h6></label>
+    <input type="text" [(ngModel)]="selectedDisciplina.title"/><br>
+    <br>
+  </div>
+  <div class="form-group">
+    <label><h6>Tipo da Disciplina:</h6></label>
+    <select [(ngModel)]="selectedTipo" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let t of tipoDiscs" [ngValue]="t.id">{{t.title}}</option>
+    </select>
+    <br>
+  </div>
+  <div class="form-group">
+    <br>
+    <label><h6>&nbsp;&nbsp;&nbsp;&nbsp;Creditos:</h6></label>
+    <select [(ngModel)]="selectedCredito" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let c of creditos" [ngValue]="c">{{c}}</option>
+    </select>
+  </div>&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button" class="btn btn-primary" (click)="update(selectedDisciplina.id,
+    selectedDisciplina.title, selectedTipo, selectedCredito)">Adicionar</button><br>
+  
+  
+  
+  {{ error?.message }}
