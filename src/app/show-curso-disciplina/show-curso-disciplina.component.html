@@ -1,0 +1,17 @@
+<div style="text-align:center">
+    <div class="p-3 mb-2 bg-info text-white">
+      <h1>
+        Disciplinas de {{ selectedCurso.title }}
+      </h1>
+    </div>
+      <br><br>
+    </div>
+    <ul>
+      <li *ngFor="let item of items">
+        <h3>
+          {{ item.disciplina.title }}
+          <button type="button" class="btn btn-primary" (click)="delete(item.id)">DELETE</button>
+          <button type="button" class="btn btn-primary" (click)="goToTurmas(item)">ADICIONAR TURMA</button>
+        </h3>
+      </li>
+    </ul>

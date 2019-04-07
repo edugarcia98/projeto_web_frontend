@@ -14,7 +14,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HabilidadeComponent } from './habilidade/habilidade.component';
 import { HabilidadeService } from './habilidade/habilidade.service';
 import { DisciplinaComponent }  from './disciplina/disciplina.component'
-import { DisciplinaService }    from './disciplina/disciplina.service'
+import { DisciplinaService }    from './disciplina/disciplina.service';
+import { CursoDisciplinaComponent } from './curso-disciplina/curso-disciplina.component'
+import { CursoDisciplinaService } from './curso-disciplina/curso-disciplina.service';
+import { ShowCursoDisciplinaComponent } from './show-curso-disciplina/show-curso-disciplina.component';
+import { CursoDisciplinaTurmaComponent } from './curso-disciplina-turma/curso-disciplina-turma.component';
+import { CursoDisciplinaTurmaService } from './curso-disciplina-turma/curso-disciplina-turma.service'; 
 
 
 const appRoutes: Routes = [
@@ -23,6 +28,9 @@ const appRoutes: Routes = [
   { path: 'curso/:id/competencias', component: CompetenciaComponent },
   { path: 'curso/:id/habilidades',  component: HabilidadeComponent },
   { path: 'disciplina', component: DisciplinaComponent },
+  { path: 'curso/:id/add-disciplinas', component: CursoDisciplinaComponent },
+  { path: 'curso/:id/disciplinas', component: ShowCursoDisciplinaComponent},
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-turmas', component: CursoDisciplinaTurmaComponent }
 ];
 
 
@@ -33,7 +41,10 @@ const appRoutes: Routes = [
     CompetenciaComponent,
     CursoComponent,
     HabilidadeComponent,
-    DisciplinaComponent
+    DisciplinaComponent,
+    CursoDisciplinaComponent,
+    ShowCursoDisciplinaComponent,
+    CursoDisciplinaTurmaComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +60,9 @@ const appRoutes: Routes = [
     CompetenciaService,
     HabilidadeService,
     CursoService,
-    DisciplinaService
+    DisciplinaService,
+    CursoDisciplinaService,
+    CursoDisciplinaTurmaService,
   ],
   bootstrap: [
     AppComponent,

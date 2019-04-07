@@ -1,0 +1,5 @@
+<h3>Adicionar nova Turma para a Disciplina {{ selectedDisciplina.title }} 
+  do Curso {{ selectedCurso.title }}</h3>
+<input #itemCodigo type='text' placeholder='Codigo'><br>
+<button (click)="add(itemCodigo.value, selectedCursoDisciplina)">Add</button><br>
+{{ error?.message }}

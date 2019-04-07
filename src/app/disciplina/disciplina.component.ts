@@ -25,7 +25,7 @@ export class DisciplinaComponent implements OnInit {
   selectedCredito = 0;
 
   constructor(private api: DisciplinaService) {
-    this.selectedDisciplina = {id: -1, title: '', tipo: ''};
+    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1};
   }
 
   ngOnInit() {

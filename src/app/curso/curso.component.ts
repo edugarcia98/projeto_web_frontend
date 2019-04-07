@@ -76,4 +76,14 @@ export class CursoComponent implements OnInit {
   {
     this.router.navigate([`curso/${item.id}/habilidades`]);
   }
+
+  goToAddDisciplinas(item)
+  {
+    this.router.navigate([`curso/${item.id}/add-disciplinas`]);
+  }
+
+  goToDisciplinas(item)
+  {
+    this.router.navigate([`curso/${item.id}/disciplinas`])
+  }
 }
