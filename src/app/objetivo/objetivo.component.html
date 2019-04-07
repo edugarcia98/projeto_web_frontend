@@ -7,8 +7,8 @@
   <li *ngFor="let item of items">
     <h2>
       {{ item.title }}
-      <button (click)="delete(item.id)">DELETE</button>
-      <button (click)="objetivoClicked(item)">DISPLAY</button>
+      <button type="button" class="btn btn-primary" (click)="delete(item.id)">DELETE</button>
+      <button type="button" class="btn btn-primary" (click)="objetivoClicked(item)">DISPLAY</button>
     </h2>
   </li>
 </ul>
@@ -19,12 +19,12 @@
 <h3>Mostrar ou Editar Objetivo</h3>
 Title <input type="text" [(ngModel)] = "selectedObjetivo.title"/><br>
 Description <input type="text" [(ngModel)] = "selectedObjetivo.description"/><br>
-<button (click)="update(selectedObjetivo.id, selectedObjetivo.title,
+<button type="button" class="btn btn-primary" (click)="update(selectedObjetivo.id, selectedObjetivo.title,
   selectedObjetivo.description)">UPDATE</button>
 <br><br>
 
 <h3>Adicionar Novo Objetivo</h3>
 <input #itemTitle type='text' placeholder='Title'><br>
 <input #itemDescription type='text' placeholder='Description'><br>
-<button (click)="add(itemTitle.value, itemDescription.value)">Add</button><br>
+<button type="button" class="btn btn-primary" (click)="add(itemTitle.value, itemDescription.value)">Add</button><br>
 {{ error?.message }}

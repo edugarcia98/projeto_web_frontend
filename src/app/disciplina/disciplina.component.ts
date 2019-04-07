@@ -50,7 +50,7 @@ export class DisciplinaComponent implements OnInit {
     location.reload();
   }
 
-  objetivoClicked(disciplina: Disciplina)
+  disciplinaClicked(disciplina: Disciplina)
   {
     this.api.showOneDisciplina(disciplina.id).subscribe(
       (item: Disciplina) => {
