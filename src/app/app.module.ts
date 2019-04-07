@@ -20,6 +20,8 @@ import { CursoDisciplinaService } from './curso-disciplina/curso-disciplina.serv
 import { ShowCursoDisciplinaComponent } from './show-curso-disciplina/show-curso-disciplina.component';
 import { CursoDisciplinaTurmaComponent } from './curso-disciplina-turma/curso-disciplina-turma.component';
 import { CursoDisciplinaTurmaService } from './curso-disciplina-turma/curso-disciplina-turma.service'; 
+import { RegisterComponent } from './register/register.component'
+import { RegisterServiceService } from './register/register-service.service'
 
 
 const appRoutes: Routes = [
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
   { path: 'disciplina', component: DisciplinaComponent },
   { path: 'curso/:id/add-disciplinas', component: CursoDisciplinaComponent },
   { path: 'curso/:id/disciplinas', component: ShowCursoDisciplinaComponent},
-  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-turmas', component: CursoDisciplinaTurmaComponent }
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-turmas', component: CursoDisciplinaTurmaComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 
@@ -44,7 +47,8 @@ const appRoutes: Routes = [
     DisciplinaComponent,
     CursoDisciplinaComponent,
     ShowCursoDisciplinaComponent,
-    CursoDisciplinaTurmaComponent
+    CursoDisciplinaTurmaComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ const appRoutes: Routes = [
     DisciplinaService,
     CursoDisciplinaService,
     CursoDisciplinaTurmaService,
+    RegisterServiceService
   ],
   bootstrap: [
     AppComponent,
