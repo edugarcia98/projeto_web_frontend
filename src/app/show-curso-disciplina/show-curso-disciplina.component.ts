@@ -72,6 +72,11 @@ export class ShowCursoDisciplinaComponent implements OnInit {
 
   goToTurmas(item)
   {
-    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/add-turmas`]);
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/turmas`]);
+  }
+
+  goToAddLivros(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/add-livros`])
   }
 }

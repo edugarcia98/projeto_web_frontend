@@ -11,7 +11,8 @@
         <h3>
           {{ item.disciplina.title }}
           <button type="button" class="btn btn-primary" (click)="delete(item.id)">DELETE</button>
-          <button type="button" class="btn btn-primary" (click)="goToTurmas(item)">ADICIONAR TURMA</button>
+          <button type="button" class="btn btn-primary" (click)="goToTurmas(item)">TURMA</button>
+          <button type="button" class="btn btn-primary" (click)="goToAddLivros(item)">ADICIONAR LIVROS</button>
         </h3>
       </li>
     </ul>

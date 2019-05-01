@@ -1,0 +1,27 @@
+<div style="text-align:center">
+  <h1>
+    Turmas de {{ selectedDisciplina.title }} para {{ selectedCurso.title }}
+  </h1>
+</div>
+<ul>
+  <li *ngFor="let item of items">
+    <h2>
+      {{ item.codigo }}
+      <button type="button" class="btn btn-primary" (click)="delete(item.id)">DELETE</button>
+      <button type="button" class="btn btn-primary" (click)="turmaClicked(item)">DISPLAY</button>
+    </h2>
+  </li>
+</ul>
+
+<hr>
+<br><br>
+
+<h3>Mostrar ou Editar Turma</h3>
+Código <input type="text" [(ngModel)] = "selectedTurma.codigo"/><br>
+<button type="button" class="btn btn-primary" (click)="update(selectedTurma.id, selectedTurma.codigo)">UPDATE</button>
+<br><br>
+
+<h3>Adicionar Nova Turma</h3>
+<input #itemCodigo type='text' placeholder='Codigo'><br>
+<button type="button" class="btn btn-primary" (click)="add(itemCodigo.value)">Add</button><br>
+{{ error?.message }}
