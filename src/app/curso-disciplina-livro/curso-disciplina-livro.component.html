@@ -1,0 +1,30 @@
+<div style="text-align:center">
+    <div class="p-3 mb-2 bg-info text-white">
+      <h1>
+        Livros
+      </h1>
+    </div>
+      <br><br>
+    </div>
+    <ul>
+      <li *ngFor="let item of items">
+        <h3>
+          {{ item.title }} - {{ item.autor }}
+          <button type="button" class="btn btn-primary" (click)="livroClicked(item)">SELECIONAR</button>
+        </h3>
+      </li>
+    </ul>
+    
+    <br><br>
+    <h5>Adicionar novo Livro à disciplina de {{ selectedDisciplina.title }} de {{ selectedCurso.title }}</h5>
+    
+    <div class="form-group mx-sm-3 mb-2">
+      <label><h6>Título:</h6></label>
+      &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)] = "selectedLivro.title" disabled/><br>
+      <label><h6>Autor(es):</h6></label>
+      &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)] = "selectedLivro.autor" disabled/><br>
+      <label><h6>Bibliografia:</h6></label>
+      &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)] = "selectedLivro.bibliografia" disabled/><br>
+      <button type="button" class="btn btn-primary" (click)="add(selectedCursoDisciplina, 
+        selectedLivro)">Adicionar</button>
+    </div>

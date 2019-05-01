@@ -26,6 +26,7 @@ import { LivroComponent } from './livro/livro.component';
 import { LivroService } from './livro/livro.service';
 import { CursoDisciplinaLivroComponent } from './curso-disciplina-livro/curso-disciplina-livro.component';
 import { CursoDisciplinaLivroService } from './curso-disciplina-livro/curso-disciplina-livro.service';
+import { ShowCursoDisciplinaLivroComponent } from './show-curso-disciplina-livro/show-curso-disciplina-livro.component';
 
 
 const appRoutes: Routes = [
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
   { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turmas', component: TurmaComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'livro', component: LivroComponent },
-  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-livros', component: CursoDisciplinaLivroComponent }
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-livros', component: CursoDisciplinaLivroComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/livros', component: ShowCursoDisciplinaLivroComponent }
 ];
 
 
@@ -56,7 +58,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     TurmaComponent,
     LivroComponent,
-    CursoDisciplinaLivroComponent
+    CursoDisciplinaLivroComponent,
+    ShowCursoDisciplinaLivroComponent
   ],
   imports: [
     BrowserModule,
