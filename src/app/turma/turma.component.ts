@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { TurmaService } from './turma.service';
 import { Turma } from './turma';
 import { CursoService } from '../curso/curso.service';
@@ -30,7 +31,8 @@ export class TurmaComponent implements OnInit {
               private route: ActivatedRoute,
               private apiCurso: CursoService,
               private apiDisciplina: DisciplinaService,
-              private apiCursoDisciplina: CursoDisciplinaService) {
+              private apiCursoDisciplina: CursoDisciplinaService,
+              private router: Router) {
       this.selectedTurma = {id: -1, codigo: '', cursoDisciplina: null};
       this.selectedCurso = {id: -1, title: '', description: ''};
       this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1};
@@ -120,6 +122,11 @@ export class TurmaComponent implements OnInit {
       }
     );
     location.reload();
+  }
+
+  goToAulas(item)
+  {
+    this.router.navigate([`curso/${item.cursoDisciplina.curso.id}/disciplina/${item.cursoDisciplina.disciplina.id}/curso-disciplina/${item.cursoDisciplina.id}/turma/${item.id}/aulas`])
   }
 
 }

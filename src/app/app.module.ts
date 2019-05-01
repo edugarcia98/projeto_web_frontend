@@ -27,6 +27,8 @@ import { LivroService } from './livro/livro.service';
 import { CursoDisciplinaLivroComponent } from './curso-disciplina-livro/curso-disciplina-livro.component';
 import { CursoDisciplinaLivroService } from './curso-disciplina-livro/curso-disciplina-livro.service';
 import { ShowCursoDisciplinaLivroComponent } from './show-curso-disciplina-livro/show-curso-disciplina-livro.component';
+import { AulaComponent } from './aula/aula.component';
+import { AulaService } from './aula/aula.service';
 
 
 const appRoutes: Routes = [
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'livro', component: LivroComponent },
   { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-livros', component: CursoDisciplinaLivroComponent },
-  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/livros', component: ShowCursoDisciplinaLivroComponent }
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/livros', component: ShowCursoDisciplinaLivroComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turma/:tid/aulas', component: AulaComponent }
 ];
 
 
@@ -59,7 +62,8 @@ const appRoutes: Routes = [
     TurmaComponent,
     LivroComponent,
     CursoDisciplinaLivroComponent,
-    ShowCursoDisciplinaLivroComponent
+    ShowCursoDisciplinaLivroComponent,
+    AulaComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +84,8 @@ const appRoutes: Routes = [
     TurmaService,
     RegisterServiceService,
     LivroService,
-    CursoDisciplinaLivroService
+    CursoDisciplinaLivroService,
+    AulaService
   ],
   bootstrap: [
     AppComponent,
