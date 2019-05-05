@@ -46,7 +46,7 @@ export class AulaComponent implements OnInit {
     this.selectedAula = {id: -1, semana: -1, data: null, tipo: '', conteudo: '', turma_id: -1, turma: null};
     this.selectedTurma = {id: -1, codigo: '', cursoDisciplina_id: -1, cursoDisciplina: null};
     this.selectedCurso = {id: -1, title: '', description: ''};
-    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1};
+    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: ''};
     this.selectedCursoDisciplina = {id: -1, curso_id: -1, disciplina_id: -1, curso: null, disciplina: null};    
     this.items = [];      
   }

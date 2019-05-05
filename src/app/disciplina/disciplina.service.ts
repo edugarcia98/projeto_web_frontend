@@ -21,13 +21,13 @@ export class DisciplinaService {
     return this.http.get(this.disciplinaRoot.concat(`disciplina/${id}/`));
   }
 
-  createDisciplina(title: string, tipo: string, creditos: number) {
-    return this.http.post(this.disciplinaRoot.concat('disciplina/'), { title, tipo, creditos });
+  createDisciplina(title: string, tipo: string, creditos: number, ementa: string) {
+    return this.http.post(this.disciplinaRoot.concat('disciplina/'), { title, tipo, creditos, ementa });
   }
 
-  updateDisciplina(id: number, title: string, tipo: string, creditos: number)
+  updateDisciplina(id: number, title: string, tipo: string, creditos: number, ementa: string)
   {
-    return this.http.put(this.disciplinaRoot.concat(`disciplina/${id}/`), {title, tipo, creditos});
+    return this.http.put(this.disciplinaRoot.concat(`disciplina/${id}/`), {title, tipo, creditos, ementa});
   }
 
   deleteDisciplina(id: number) {

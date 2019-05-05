@@ -35,8 +35,8 @@ export class DisciplinaComponent implements OnInit {
     );
   }
 
-  add(itemTitle: string){
-    this.api.createDisciplina(itemTitle, this.selectedTipo, this.selectedCredito ).subscribe(
+  add(itemTitle: string, itemEmenta: string){
+    this.api.createDisciplina(itemTitle, this.selectedTipo, this.selectedCredito, itemEmenta).subscribe(
       (item: Disciplina) => this.items.push(item)
     );
     location.reload();
@@ -60,13 +60,14 @@ export class DisciplinaComponent implements OnInit {
     );
   }
 
-  update(id: number, title: string, tipo: string, credito: number)
+  update(id: number, title: string, tipo: string, credito: number, ementa: string)
   {
-    this.api.updateDisciplina(id, title, tipo, credito).subscribe(
+    this.api.updateDisciplina(id, title, tipo, credito, ementa).subscribe(
       (item: Disciplina) => {
         item.title = title;
         item.tipo = tipo;
         item.creditos = credito;
+        item.ementa = ementa;
       }
     );
     location.reload();

@@ -1,44 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CursoDisciplinaLivroService } from './curso-disciplina-livro.service';
-import { CursoDisciplinaLivro } from './curso-disciplina-livro';
+import { CursoDisciplinaHabilidadeService } from '../curso-disciplina-habilidade/curso-disciplina-habilidade.service';
+import { CursoDisciplinaHabilidade } from '../curso-disciplina-habilidade/curso-disciplina-habilidade';
 import { CursoService } from '../curso/curso.service';
 import { Curso } from '../curso/curso';
 import { DisciplinaService } from '../disciplina/disciplina.service';
 import { Disciplina } from '../disciplina/disciplina';
 import { CursoDisciplinaService } from '../curso-disciplina/curso-disciplina.service';
 import { CursoDisciplina } from '../curso-disciplina/curso-disciplina';
-import { LivroService } from '../livro/livro.service';
-import { Livro } from '../livro/livro';
+import { HabilidadeService } from '../habilidade/habilidade.service';
+import { Habilidade } from '../habilidade/habilidade';
 
 @Component({
-  selector: 'app-curso-disciplina-livro',
-  templateUrl: './curso-disciplina-livro.component.html',
-  styleUrls: ['./curso-disciplina-livro.component.css']
+  selector: 'app-curso-disciplina-habilidade',
+  templateUrl: './curso-disciplina-habilidade.component.html',
+  styleUrls: ['./curso-disciplina-habilidade.component.css']
 })
-export class CursoDisciplinaLivroComponent implements OnInit {
+export class CursoDisciplinaHabilidadeComponent implements OnInit {
 
-  items: Livro[];
-  cursoDisciplinaLivros: CursoDisciplinaLivro[];
+  items: Habilidade[];
+  cursoDisciplinaHabilidades: CursoDisciplinaHabilidade[];
   selectedCurso: Curso;
   selectedDisciplina: Disciplina;
   selectedCursoDisciplina: CursoDisciplina;
-  selectedLivro: Livro;
+  selectedHabilidade: Habilidade;
   error: any;
   public cursoId;
   public disciplinaId;
   public cursoDisciplinaId
 
-  constructor(private api: CursoDisciplinaLivroService,
-              private apiCursoDisciplina: CursoDisciplinaService,
-              private apiLivro: LivroService,
+  constructor(private api: CursoDisciplinaHabilidadeService,
+              private apiCursoDisciplina: CursoDisciplinaService, 
+              private apiHabilidade: HabilidadeService,
               private apiCurso: CursoService,
               private apiDisciplina: DisciplinaService,
-              private route: ActivatedRoute) { 
+              private route: ActivatedRoute) {
     this.selectedCursoDisciplina = {id: -1, curso_id: -1, disciplina_id: -1, curso: null, disciplina: null};
-    this.selectedLivro = {id: -1, title: '', autor: '', bibliografia: ''};
+    this.selectedHabilidade = {id: -1, title: '', description: '', curso_id: -1, curso: null};
     this.selectedCurso = {id: -1, title: '', description: ''};
     this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: ''};
+    this.items = [];
   }
 
   ngOnInit() {
@@ -72,31 +73,46 @@ export class CursoDisciplinaLivroComponent implements OnInit {
       }
     )
 
-    this.apiLivro.getLivros().subscribe(
-      (items: Livro[]) => this.items = items,
-      (error: any) => this.error = error
+    this.apiHabilidade.getHabilidades().subscribe(
+      (items: Habilidade[]) =>
+      {
+        items.forEach(
+          (hab: Habilidade) =>
+          {
+            if(hab.curso.id == this.cursoId)
+            {
+              this.items.push(hab);
+            }
+          }
+        );
+      }
     )
 
-    this.api.getCursoDisciplinaLivros().subscribe(
-      (items: CursoDisciplinaLivro[]) => this.cursoDisciplinaLivros = items,
+    this.api.getCursoDisciplinaHabilidades().subscribe(
+      (items: CursoDisciplinaHabilidade[]) => this.cursoDisciplinaHabilidades = items,
       (error: any) => this.error = error
     )
   }
 
-  livroClicked(livro: Livro)
+  habilidadeClicked(habilidade: Habilidade)
   {
-    this.apiLivro.showOneLivro(livro.id).subscribe(
-      (item: Livro) => {
-        this.selectedLivro = item;
+    this.apiHabilidade.showOneHabilidade(habilidade.id).subscribe(
+      (item: Habilidade) => {
+        this.selectedHabilidade = item;
       }
     );
   }
 
-  add(cursoDisciplina: CursoDisciplina, livro: Livro)
+  add(cursoDisciplina: CursoDisciplina, habilidade: Habilidade)
   {
-    this.api.createCursoDisciplinaLivro(cursoDisciplina.id, livro.id).subscribe(
-      (item: CursoDisciplinaLivro) => this.cursoDisciplinaLivros.push(item)
+    this.api.createCursoDisciplinaHabilidade(cursoDisciplina.id, habilidade.id).subscribe(
+      (item: CursoDisciplinaHabilidade) => {
+        this.cursoDisciplinaHabilidades.push(item);
+      }
     );
     location.reload();
   }
+
 }
+
+  

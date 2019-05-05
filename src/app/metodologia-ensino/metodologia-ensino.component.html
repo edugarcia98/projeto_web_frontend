@@ -1,0 +1,27 @@
+<div style="text-align:center">
+  <h1>
+    Metodologias de Ensino de {{ selectedDisciplina.title }} para {{ selectedCurso.title }}
+  </h1>
+</div>
+<ul>
+  <li *ngFor="let item of items">
+    <h2>
+      {{ item.description }}
+      <button type="button" class="btn btn-primary" (click)="delete(item.id)">DELETE</button>
+      <button type="button" class="btn btn-primary" (click)="metodologiaEnsinoClicked(item)">DISPLAY</button>
+    </h2>
+  </li>
+</ul>
+
+<hr>
+<br><br>
+
+<h3>Mostrar ou Editar Metodologia de Ensino</h3>
+Metodologia de Ensino <input type="text" [(ngModel)] = "selectedMetodologiaEnsino.description"/><br>
+<button type="button" class="btn btn-primary" (click)="update(selectedMetodologiaEnsino.id, selectedMetodologiaEnsino.description)">UPDATE</button>
+<br><br>
+
+<h3>Adicionar Nova Metodologia de Ensino</h3>
+<input #itemDescription type='text' placeholder='Metodologia de Ensino'><br>
+<button type="button" class="btn btn-primary" (click)="add(itemDescription.value)">Add</button><br>
+{{ error?.message }}

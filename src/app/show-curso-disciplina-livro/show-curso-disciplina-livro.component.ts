@@ -38,7 +38,7 @@ export class ShowCursoDisciplinaLivroComponent implements OnInit {
     this.selectedCursoDisciplina = {id: -1, curso_id: -1, disciplina_id: -1, curso: null, disciplina: null};
     this.selectedLivro = {id: -1, title: '', autor: '', bibliografia: ''};
     this.selectedCurso = {id: -1, title: '', description: ''};
-    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1};
+    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: ''};
     this.items = [];
   }
 

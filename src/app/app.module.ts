@@ -29,6 +29,19 @@ import { CursoDisciplinaLivroService } from './curso-disciplina-livro/curso-disc
 import { ShowCursoDisciplinaLivroComponent } from './show-curso-disciplina-livro/show-curso-disciplina-livro.component';
 import { AulaComponent } from './aula/aula.component';
 import { AulaService } from './aula/aula.service';
+import { CursoDisciplinaObjetivoComponent } from './curso-disciplina-objetivo/curso-disciplina-objetivo.component';
+import { CursoDisciplinaObjetivoService } from './curso-disciplina-objetivo/curso-disciplina-objetivo.service';
+import { ShowCursoDisciplinaObjetivoComponent } from './show-curso-disciplina-objetivo/show-curso-disciplina-objetivo.component';
+import { CursoDisciplinaCompetenciaComponent } from './curso-disciplina-competencia/curso-disciplina-competencia.component';
+import { CursoDisciplinaCompetenciaService } from './curso-disciplina-competencia/curso-disciplina-competencia.service';
+import { ShowCursoDisciplinaCompetenciaComponent } from './show-curso-disciplina-competencia/show-curso-disciplina-competencia.component';
+import { CursoDisciplinaHabilidadeComponent } from './curso-disciplina-habilidade/curso-disciplina-habilidade.component';
+import { CursoDisciplinaHabilidadeService } from './curso-disciplina-habilidade/curso-disciplina-habilidade.service';
+import { ShowCursoDisciplinaHabilidadeComponent } from './show-curso-disciplina-habilidade/show-curso-disciplina-habilidade.component';
+import { ConteudoComponent } from './conteudo/conteudo.component';
+import { ConteudoService } from './conteudo/conteudo.service';
+import { MetodologiaEnsinoComponent } from './metodologia-ensino/metodologia-ensino.component';
+import { MetodologiaEnsinoService } from './metodologia-ensino/metodologia-ensino.service';
 
 
 const appRoutes: Routes = [
@@ -40,10 +53,18 @@ const appRoutes: Routes = [
   { path: 'curso/:id/add-disciplinas', component: CursoDisciplinaComponent },
   { path: 'curso/:id/disciplinas', component: ShowCursoDisciplinaComponent},
   { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turmas', component: TurmaComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/conteudos', component: ConteudoComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/metodologias-ensino', component: MetodologiaEnsinoComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'livro', component: LivroComponent },
   { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-livros', component: CursoDisciplinaLivroComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-objetivos', component: CursoDisciplinaObjetivoComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-competencias', component: CursoDisciplinaCompetenciaComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-habilidades', component: CursoDisciplinaHabilidadeComponent },
   { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/livros', component: ShowCursoDisciplinaLivroComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/objetivos', component: ShowCursoDisciplinaObjetivoComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/competencias', component: ShowCursoDisciplinaCompetenciaComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/habilidades', component: ShowCursoDisciplinaHabilidadeComponent },
   { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turma/:tid/aulas', component: AulaComponent }
 ];
 
@@ -63,7 +84,15 @@ const appRoutes: Routes = [
     LivroComponent,
     CursoDisciplinaLivroComponent,
     ShowCursoDisciplinaLivroComponent,
-    AulaComponent
+    AulaComponent,
+    CursoDisciplinaObjetivoComponent,
+    ShowCursoDisciplinaObjetivoComponent,
+    CursoDisciplinaCompetenciaComponent,
+    ShowCursoDisciplinaCompetenciaComponent,
+    CursoDisciplinaHabilidadeComponent,
+    ShowCursoDisciplinaHabilidadeComponent,
+    ConteudoComponent,
+    MetodologiaEnsinoComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +114,12 @@ const appRoutes: Routes = [
     RegisterServiceService,
     LivroService,
     CursoDisciplinaLivroService,
-    AulaService
+    CursoDisciplinaObjetivoService,
+    CursoDisciplinaCompetenciaService,
+    CursoDisciplinaHabilidadeService,
+    AulaService,
+    ConteudoService,
+    MetodologiaEnsinoService
   ],
   bootstrap: [
     AppComponent,

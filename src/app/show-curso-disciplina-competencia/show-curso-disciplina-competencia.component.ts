@@ -1,44 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CursoDisciplinaLivroService } from './curso-disciplina-livro.service';
-import { CursoDisciplinaLivro } from './curso-disciplina-livro';
 import { CursoService } from '../curso/curso.service';
 import { Curso } from '../curso/curso';
 import { DisciplinaService } from '../disciplina/disciplina.service';
 import { Disciplina } from '../disciplina/disciplina';
 import { CursoDisciplinaService } from '../curso-disciplina/curso-disciplina.service';
 import { CursoDisciplina } from '../curso-disciplina/curso-disciplina';
-import { LivroService } from '../livro/livro.service';
-import { Livro } from '../livro/livro';
+import { CompetenciaService } from '../competencia/competencia.service';
+import { Competencia } from '../competencia/competencia';
+import { CursoDisciplinaCompetenciaService } from '../curso-disciplina-competencia/curso-disciplina-competencia.service';
+import { CursoDisciplinaCompetencia } from '../curso-disciplina-competencia/curso-disciplina-competencia';
 
 @Component({
-  selector: 'app-curso-disciplina-livro',
-  templateUrl: './curso-disciplina-livro.component.html',
-  styleUrls: ['./curso-disciplina-livro.component.css']
+  selector: 'app-show-curso-disciplina-competencia',
+  templateUrl: './show-curso-disciplina-competencia.component.html',
+  styleUrls: ['./show-curso-disciplina-competencia.component.css']
 })
-export class CursoDisciplinaLivroComponent implements OnInit {
+export class ShowCursoDisciplinaCompetenciaComponent implements OnInit {
 
-  items: Livro[];
-  cursoDisciplinaLivros: CursoDisciplinaLivro[];
+  items: CursoDisciplinaCompetencia[]
+  selectedCursoDisciplinaCompetencia: CursoDisciplinaCompetencia;
+  selectedCompetencia: Competencia;
+  selectedCursoDisciplina: CursoDisciplina;
   selectedCurso: Curso;
   selectedDisciplina: Disciplina;
-  selectedCursoDisciplina: CursoDisciplina;
-  selectedLivro: Livro;
-  error: any;
   public cursoId;
   public disciplinaId;
-  public cursoDisciplinaId
+  public cursoDisciplinaId;
+  error: any;
 
-  constructor(private api: CursoDisciplinaLivroService,
+  constructor(private api: CursoDisciplinaCompetenciaService,
               private apiCursoDisciplina: CursoDisciplinaService,
-              private apiLivro: LivroService,
+              private apiCompetencia: CompetenciaService,
               private apiCurso: CursoService,
               private apiDisciplina: DisciplinaService,
               private route: ActivatedRoute) { 
     this.selectedCursoDisciplina = {id: -1, curso_id: -1, disciplina_id: -1, curso: null, disciplina: null};
-    this.selectedLivro = {id: -1, title: '', autor: '', bibliografia: ''};
+    this.selectedCompetencia = {id: -1, title: '', description: '', curso_id: -1, curso: null}; 
     this.selectedCurso = {id: -1, title: '', description: ''};
     this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: ''};
+    this.items = [];          
   }
 
   ngOnInit() {
@@ -72,31 +73,30 @@ export class CursoDisciplinaLivroComponent implements OnInit {
       }
     )
 
-    this.apiLivro.getLivros().subscribe(
-      (items: Livro[]) => this.items = items,
-      (error: any) => this.error = error
-    )
-
-    this.api.getCursoDisciplinaLivros().subscribe(
-      (items: CursoDisciplinaLivro[]) => this.cursoDisciplinaLivros = items,
-      (error: any) => this.error = error
-    )
-  }
-
-  livroClicked(livro: Livro)
-  {
-    this.apiLivro.showOneLivro(livro.id).subscribe(
-      (item: Livro) => {
-        this.selectedLivro = item;
+    this.api.getCursoDisciplinaCompetencias().subscribe(
+      (items: CursoDisciplinaCompetencia[]) =>
+      {
+        items.forEach
+        (
+          (cdc: CursoDisciplinaCompetencia) =>
+          {
+            if(cdc.cursoDisciplina.id == this.cursoDisciplinaId)
+            {
+              this.items.push(cdc);
+            }
+          }
+        );
       }
-    );
+    )
   }
 
-  add(cursoDisciplina: CursoDisciplina, livro: Livro)
-  {
-    this.api.createCursoDisciplinaLivro(cursoDisciplina.id, livro.id).subscribe(
-      (item: CursoDisciplinaLivro) => this.cursoDisciplinaLivros.push(item)
+  delete(id: number) {
+    this.api.deleteCursoDisciplinaCompetencia(id).subscribe(
+      (success: any) => this.items.splice(
+        this.items.findIndex(item => item.id === id)
+      )
     );
     location.reload();
   }
+
 }

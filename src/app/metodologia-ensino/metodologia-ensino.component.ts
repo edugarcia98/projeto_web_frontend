@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-import { TurmaService } from './turma.service';
-import { Turma } from './turma';
+import { MetodologiaEnsinoService } from './metodologia-ensino.service';
+import { MetodologiaEnsino } from './metodologia-ensino';
 import { CursoService } from '../curso/curso.service';
 import { Curso } from '../curso/curso';
 import { DisciplinaService } from '../disciplina/disciplina.service';
@@ -11,34 +10,33 @@ import { CursoDisciplinaService } from '../curso-disciplina/curso-disciplina.ser
 import { CursoDisciplina } from '../curso-disciplina/curso-disciplina';
 
 @Component({
-  selector: 'app-turma',
-  templateUrl: './turma.component.html',
-  styleUrls: ['./turma.component.css']
+  selector: 'app-metodologia-ensino',
+  templateUrl: './metodologia-ensino.component.html',
+  styleUrls: ['./metodologia-ensino.component.css']
 })
-export class TurmaComponent implements OnInit {
+export class MetodologiaEnsinoComponent implements OnInit {
 
-  items: Turma[];
+  items: MetodologiaEnsino[];
   error: any;
   selectedCurso: Curso;
   selectedDisciplina: Disciplina;
   selectedCursoDisciplina: CursoDisciplina;
-  selectedTurma;
+  selectedMetodologiaEnsino;
   public curso_id;
   public disciplina_id;
   public cursoDisciplina_id;
 
-  constructor(private api: TurmaService,
+  constructor(private api: MetodologiaEnsinoService,
               private route: ActivatedRoute,
               private apiCurso: CursoService,
               private apiDisciplina: DisciplinaService,
-              private apiCursoDisciplina: CursoDisciplinaService,
-              private router: Router) {
-      this.selectedTurma = {id: -1, codigo: '', cursoDisciplina: null};
-      this.selectedCurso = {id: -1, title: '', description: ''};
-      this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: ''};
-      this.selectedCursoDisciplina = {id: -1, curso_id: -1, disciplina_id: -1, curso: null, disciplina: null};
-      this.items = [];
-    }
+              private apiCursoDisciplina: CursoDisciplinaService) {
+    this.selectedMetodologiaEnsino = {id: -1, description: '', cursoDisciplina: null};
+    this.selectedCurso = {id: -1, title: '', description: ''};
+    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: ''};
+    this.selectedCursoDisciplina = {id: -1, curso_id: -1, disciplina_id: -1, curso: null, disciplina: null};
+    this.items = [];
+  }
 
   ngOnInit() {
     let cId = parseInt(this.route.snapshot.paramMap.get('cId'));
@@ -54,7 +52,6 @@ export class TurmaComponent implements OnInit {
     (
       (item: Curso) => {
         this.selectedCurso = item;
-        console.log(this.selectedCurso);
       }
     )
 
@@ -62,7 +59,6 @@ export class TurmaComponent implements OnInit {
     (
       (item: Disciplina) => {
         this.selectedDisciplina = item;
-        console.log(this.selectedDisciplina);
       }
     )
 
@@ -70,34 +66,33 @@ export class TurmaComponent implements OnInit {
     (
       (item: CursoDisciplina) => {
         this.selectedCursoDisciplina = item;
-        console.log(this.selectedCursoDisciplina);
       }
     )
 
-    this.api.getTurmas().subscribe(
-      (items: Turma[]) =>
+    this.api.getMetodologiasEnsino().subscribe(
+      (items: MetodologiaEnsino[]) =>
       {
         items.forEach
         (
-          (turma: Turma) =>
+          (me: MetodologiaEnsino) =>
           {
-            if(turma.cursoDisciplina.id == this.cursoDisciplina_id)
-              this.items.push(turma);
+            if(me.cursoDisciplina.id == this.cursoDisciplina_id)
+              this.items.push(me);
           }
         )
       }
     );
   }
 
-  add(itemCodigo: string) {
-    this.api.createTurma(itemCodigo, this.cursoDisciplina_id).subscribe(
-      (item: Turma) => this.items.push(item)
+  add(itemDescription: string) {
+    this.api.createMetodologiaEnsino(itemDescription, this.cursoDisciplina_id).subscribe(
+      (item: MetodologiaEnsino) => this.items.push(item)
     );
     location.reload();
   }
 
   delete(id: number) {
-    this.api.deleteTurma(id).subscribe(
+    this.api.deleteMetodologiaEnsino(id).subscribe(
       (success: any) => this.items.splice(
         this.items.findIndex(item => item.id === id)
       )
@@ -105,28 +100,22 @@ export class TurmaComponent implements OnInit {
     location.reload();
   }
 
-  turmaClicked(turma: Turma)
+  metodologiaEnsinoClicked(metodologiaEnsino: MetodologiaEnsino)
   {
-    this.api.showOneTurma(turma.id).subscribe(
-      (item: Turma) => {
-        this.selectedTurma = item;
+    this.api.showOneMetodologiaEnsino(metodologiaEnsino.id).subscribe(
+      (item: MetodologiaEnsino) => {
+        this.selectedMetodologiaEnsino = item;
       }
     );
   }
 
-  update(id: number, codigo: string)
+  update(id: number, description: string)
   {
-    this.api.updateTurma(id, codigo, this.cursoDisciplina_id).subscribe(
-      (item: Turma) => {
-        item.codigo = codigo;
+    this.api.updateMetodologiaEnsino(id, description, this.cursoDisciplina_id).subscribe(
+      (item: MetodologiaEnsino) => {
+        item.description = description;
       }
     );
     location.reload();
   }
-
-  goToAulas(item)
-  {
-    this.router.navigate([`curso/${item.cursoDisciplina.curso.id}/disciplina/${item.cursoDisciplina.disciplina.id}/curso-disciplina/${item.cursoDisciplina.id}/turma/${item.id}/aulas`])
-  }
-
 }

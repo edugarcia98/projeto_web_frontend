@@ -12,6 +12,14 @@
           {{ item.disciplina.title }}
           <button type="button" class="btn btn-primary" (click)="delete(item.id)">DELETE</button>
           <button type="button" class="btn btn-primary" (click)="goToTurmas(item)">TURMA</button>
+          <button type="button" class="btn btn-primary" (click)="goToConteudos(item)">CONTEÚDO</button>
+          <button type="button" class="btn btn-primary" (click)="goToMetodologiasEnsino(item)">METODOLOGIA DE ENSINO</button>
+          <button type="button" class="btn btn-primary" (click)="goToAddObjetivos(item)">ADICIONAR OBJETIVOS</button>
+          <button type="button" class="btn btn-primary" (click)="goToObjetivos(item)">OBJETIVOS</button>
+          <button type="button" class="btn btn-primary" (click)="goToAddCompetencias(item)">ADICIONAR COMPETÊNCIAS</button>
+          <button type="button" class="btn btn-primary" (click)="goToCompetencias(item)">COMPETÊNCIAS</button>
+          <button type="button" class="btn btn-primary" (click)="goToAddHabilidades(item)">ADICIONAR HABILIDADES</button>
+          <button type="button" class="btn btn-primary" (click)="goToHabilidades(item)">HABILIDADES</button>
           <button type="button" class="btn btn-primary" (click)="goToAddLivros(item)">ADICIONAR LIVROS</button>
           <button type="button" class="btn btn-primary" (click)="goToLivros(item)">LIVROS</button>
         </h3>
