@@ -19,13 +19,13 @@ export class TurmaService {
     return this.http.get(this.turmaRoot.concat(`turma/${id}/`));
   }
 
-  createTurma(codigo: string, cursoDisciplina_id: number) {
-    return this.http.post(this.turmaRoot.concat('turma/'), {codigo, cursoDisciplina_id});
+  createTurma(codigo: string, semestre: string, recursos: string, cursoDisciplina_id: number) {
+    return this.http.post(this.turmaRoot.concat('turma/'), {codigo, semestre, recursos, cursoDisciplina_id});
   }
 
-  updateTurma(id: number, codigo: string, cursoDisciplina_id: number)
+  updateTurma(id: number, codigo: string, semestre: string, recursos: string, cursoDisciplina_id: number)
   {
-    return this.http.put(this.turmaRoot.concat(`turma/${id}/`), {codigo, cursoDisciplina_id})
+    return this.http.put(this.turmaRoot.concat(`turma/${id}/`), {codigo, semestre, recursos, cursoDisciplina_id})
   }
 
   deleteTurma(id: number) {

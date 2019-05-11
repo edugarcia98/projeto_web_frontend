@@ -124,4 +124,9 @@ export class ShowCursoDisciplinaComponent implements OnInit {
   {
     this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/livros`])
   }
+
+  goToPlanoEnsino(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/plano-ensino`])
+  }
 }

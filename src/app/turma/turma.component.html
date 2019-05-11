@@ -10,6 +10,7 @@
       <button type="button" class="btn btn-primary" (click)="delete(item.id)">DELETE</button>
       <button type="button" class="btn btn-primary" (click)="turmaClicked(item)">DISPLAY</button>
       <button type="button" class="btn btn-primary" (click)="goToAulas(item)">AULA</button>
+      <button type="button" class="btn btn-primary" (click)="goToPlanoAulas(item)">PLANO DE AULAS</button>
     </h2>
   </li>
 </ul>
@@ -19,10 +20,14 @@
 
 <h3>Mostrar ou Editar Turma</h3>
 Código <input type="text" [(ngModel)] = "selectedTurma.codigo"/><br>
-<button type="button" class="btn btn-primary" (click)="update(selectedTurma.id, selectedTurma.codigo)">UPDATE</button>
+Semestre <input type="text" [(ngModel)] = "selectedTurma.semestre"/><br>
+Recursos <input type="text" [(ngModel)] = "selectedTurma.recursos"/><br>
+<button type="button" class="btn btn-primary" (click)="update(selectedTurma.id, selectedTurma.codigo, selectedTurma.semestre, selectedTurma.recursos)">UPDATE</button>
 <br><br>
 
 <h3>Adicionar Nova Turma</h3>
 <input #itemCodigo type='text' placeholder='Codigo'><br>
-<button type="button" class="btn btn-primary" (click)="add(itemCodigo.value)">Add</button><br>
+<input #itemSemestre type='text' placeholder='Semestre'><br>
+<input #itemRecursos type='text' placeholder='Recursos'><br>
+<button type="button" class="btn btn-primary" (click)="add(itemCodigo.value, itemSemestre.value, itemRecursos.value)">Add</button><br>
 {{ error?.message }}

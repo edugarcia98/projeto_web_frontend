@@ -42,6 +42,8 @@ import { ConteudoComponent } from './conteudo/conteudo.component';
 import { ConteudoService } from './conteudo/conteudo.service';
 import { MetodologiaEnsinoComponent } from './metodologia-ensino/metodologia-ensino.component';
 import { MetodologiaEnsinoService } from './metodologia-ensino/metodologia-ensino.service';
+import { PlanoEnsinoComponent } from './plano-ensino/plano-ensino.component';
+import { PlanoAulasComponent } from './plano-aulas/plano-aulas.component';
 
 
 const appRoutes: Routes = [
@@ -65,7 +67,9 @@ const appRoutes: Routes = [
   { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/objetivos', component: ShowCursoDisciplinaObjetivoComponent },
   { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/competencias', component: ShowCursoDisciplinaCompetenciaComponent },
   { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/habilidades', component: ShowCursoDisciplinaHabilidadeComponent },
-  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turma/:tid/aulas', component: AulaComponent }
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turma/:tid/aulas', component: AulaComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/plano-ensino', component: PlanoEnsinoComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turma/:tId/plano-aulas', component: PlanoAulasComponent }
 ];
 
 
@@ -92,7 +96,9 @@ const appRoutes: Routes = [
     CursoDisciplinaHabilidadeComponent,
     ShowCursoDisciplinaHabilidadeComponent,
     ConteudoComponent,
-    MetodologiaEnsinoComponent
+    MetodologiaEnsinoComponent,
+    PlanoEnsinoComponent,
+    PlanoAulasComponent
   ],
   imports: [
     BrowserModule,

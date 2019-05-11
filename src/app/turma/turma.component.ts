@@ -89,8 +89,8 @@ export class TurmaComponent implements OnInit {
     );
   }
 
-  add(itemCodigo: string) {
-    this.api.createTurma(itemCodigo, this.cursoDisciplina_id).subscribe(
+  add(itemCodigo: string, itemSemestre: string, itemRecursos: string) {
+    this.api.createTurma(itemCodigo, itemSemestre, itemRecursos, this.cursoDisciplina_id).subscribe(
       (item: Turma) => this.items.push(item)
     );
     location.reload();
@@ -114,9 +114,9 @@ export class TurmaComponent implements OnInit {
     );
   }
 
-  update(id: number, codigo: string)
+  update(id: number, codigo: string, semestre: string, recursos: string)
   {
-    this.api.updateTurma(id, codigo, this.cursoDisciplina_id).subscribe(
+    this.api.updateTurma(id, codigo, semestre, recursos, this.cursoDisciplina_id).subscribe(
       (item: Turma) => {
         item.codigo = codigo;
       }
@@ -127,6 +127,11 @@ export class TurmaComponent implements OnInit {
   goToAulas(item)
   {
     this.router.navigate([`curso/${item.cursoDisciplina.curso.id}/disciplina/${item.cursoDisciplina.disciplina.id}/curso-disciplina/${item.cursoDisciplina.id}/turma/${item.id}/aulas`])
+  }
+
+  goToPlanoAulas(item)
+  {
+    this.router.navigate([`curso/${item.cursoDisciplina.curso.id}/disciplina/${item.cursoDisciplina.disciplina.id}/curso-disciplina/${item.cursoDisciplina.id}/turma/${item.id}/plano-aulas`])
   }
 
 }
