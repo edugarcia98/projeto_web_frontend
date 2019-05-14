@@ -1,10 +1,8 @@
-import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 import { ObjetivoService } from 'src/app/objetivo/objetivo.service';
 import { CompetenciaService } from 'src/app/competencia/competencia.service';
 import { AppComponent } from './app.component';
@@ -20,10 +18,32 @@ import { DisciplinaService }    from './disciplina/disciplina.service';
 import { CursoDisciplinaComponent } from './curso-disciplina/curso-disciplina.component'
 import { CursoDisciplinaService } from './curso-disciplina/curso-disciplina.service';
 import { ShowCursoDisciplinaComponent } from './show-curso-disciplina/show-curso-disciplina.component';
-import { CursoDisciplinaTurmaComponent } from './curso-disciplina-turma/curso-disciplina-turma.component';
-import { CursoDisciplinaTurmaService } from './curso-disciplina-turma/curso-disciplina-turma.service'; 
-import { RegisterServiceService } from './register/register-service.service'
-import { RegisterService } from '../app/user/register/register.service'
+import { RegisterComponent } from './register/register.component'
+import { RegisterServiceService } from './register/register-service.service';
+import { TurmaComponent } from './turma/turma.component'
+import { TurmaService } from './turma/turma.service';
+import { LivroComponent } from './livro/livro.component';
+import { LivroService } from './livro/livro.service';
+import { CursoDisciplinaLivroComponent } from './curso-disciplina-livro/curso-disciplina-livro.component';
+import { CursoDisciplinaLivroService } from './curso-disciplina-livro/curso-disciplina-livro.service';
+import { ShowCursoDisciplinaLivroComponent } from './show-curso-disciplina-livro/show-curso-disciplina-livro.component';
+import { AulaComponent } from './aula/aula.component';
+import { AulaService } from './aula/aula.service';
+import { CursoDisciplinaObjetivoComponent } from './curso-disciplina-objetivo/curso-disciplina-objetivo.component';
+import { CursoDisciplinaObjetivoService } from './curso-disciplina-objetivo/curso-disciplina-objetivo.service';
+import { ShowCursoDisciplinaObjetivoComponent } from './show-curso-disciplina-objetivo/show-curso-disciplina-objetivo.component';
+import { CursoDisciplinaCompetenciaComponent } from './curso-disciplina-competencia/curso-disciplina-competencia.component';
+import { CursoDisciplinaCompetenciaService } from './curso-disciplina-competencia/curso-disciplina-competencia.service';
+import { ShowCursoDisciplinaCompetenciaComponent } from './show-curso-disciplina-competencia/show-curso-disciplina-competencia.component';
+import { CursoDisciplinaHabilidadeComponent } from './curso-disciplina-habilidade/curso-disciplina-habilidade.component';
+import { CursoDisciplinaHabilidadeService } from './curso-disciplina-habilidade/curso-disciplina-habilidade.service';
+import { ShowCursoDisciplinaHabilidadeComponent } from './show-curso-disciplina-habilidade/show-curso-disciplina-habilidade.component';
+import { ConteudoComponent } from './conteudo/conteudo.component';
+import { ConteudoService } from './conteudo/conteudo.service';
+import { MetodologiaEnsinoComponent } from './metodologia-ensino/metodologia-ensino.component';
+import { MetodologiaEnsinoService } from './metodologia-ensino/metodologia-ensino.service';
+import { PlanoEnsinoComponent } from './plano-ensino/plano-ensino.component';
+import { PlanoAulasComponent } from './plano-aulas/plano-aulas.component';
 
 
 const appRoutes: Routes = [
@@ -34,9 +54,23 @@ const appRoutes: Routes = [
   { path: 'disciplina', component: DisciplinaComponent },
   { path: 'curso/:id/add-disciplinas', component: CursoDisciplinaComponent },
   { path: 'curso/:id/disciplinas', component: ShowCursoDisciplinaComponent},
-  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-turmas', component: CursoDisciplinaTurmaComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turmas', component: TurmaComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/conteudos', component: ConteudoComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/metodologias-ensino', component: MetodologiaEnsinoComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'livro', component: LivroComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-livros', component: CursoDisciplinaLivroComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-objetivos', component: CursoDisciplinaObjetivoComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-competencias', component: CursoDisciplinaCompetenciaComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/add-habilidades', component: CursoDisciplinaHabilidadeComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/livros', component: ShowCursoDisciplinaLivroComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/objetivos', component: ShowCursoDisciplinaObjetivoComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/competencias', component: ShowCursoDisciplinaCompetenciaComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/habilidades', component: ShowCursoDisciplinaHabilidadeComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turma/:tid/aulas', component: AulaComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/plano-ensino', component: PlanoEnsinoComponent },
+  { path: 'curso/:cId/disciplina/:dId/curso-disciplina/:cdId/turma/:tId/plano-aulas', component: PlanoAulasComponent }
 ];
 
 
@@ -50,9 +84,23 @@ const appRoutes: Routes = [
     DisciplinaComponent,
     CursoDisciplinaComponent,
     ShowCursoDisciplinaComponent,
-    CursoDisciplinaTurmaComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TurmaComponent,
+    LivroComponent,
+    CursoDisciplinaLivroComponent,
+    ShowCursoDisciplinaLivroComponent,
+    AulaComponent,
+    CursoDisciplinaObjetivoComponent,
+    ShowCursoDisciplinaObjetivoComponent,
+    CursoDisciplinaCompetenciaComponent,
+    ShowCursoDisciplinaCompetenciaComponent,
+    CursoDisciplinaHabilidadeComponent,
+    ShowCursoDisciplinaHabilidadeComponent,
+    ConteudoComponent,
+    MetodologiaEnsinoComponent,
+    PlanoEnsinoComponent,
+    PlanoAulasComponent
   ],
   imports: [
     BrowserModule,
@@ -70,9 +118,16 @@ const appRoutes: Routes = [
     CursoService,
     DisciplinaService,
     CursoDisciplinaService,
-    CursoDisciplinaTurmaService,
+    TurmaService,
     RegisterServiceService,
-    RegisterService
+    LivroService,
+    CursoDisciplinaLivroService,
+    CursoDisciplinaObjetivoService,
+    CursoDisciplinaCompetenciaService,
+    CursoDisciplinaHabilidadeService,
+    AulaService,
+    ConteudoService,
+    MetodologiaEnsinoService
   ],
   bootstrap: [
     AppComponent,

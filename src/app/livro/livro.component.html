@@ -1,0 +1,75 @@
+<div style="text-align:center">
+  <div class="p-3 mb-2 bg-info text-white">
+     <h1>Livro</h1>
+  </div>
+  </div>
+  <ul>
+    <li *ngFor="let item of items">
+      <h2>
+        {{ item.title }} - {{ item.autor }}
+        <button (click)="delete(item.id)">DELETE</button>
+        <button (click)="livroClicked(item)">DISPLAY</button>
+      </h2>
+    </li>
+  </ul>
+  <br>
+  <br>
+  <div class="d-inline-flex p-2 bd-highlight"><h3>Adicionar Novo Livro</h3></div>
+  <br>
+  <br>
+
+  <form class="form-inline">
+      <div class="form-group mx-sm-3 mb-2">
+        <label><h6>Título: </h6></label>
+        <input #itemTitle type='text' placeholder='Título'>
+        <br>
+      </div>
+
+      <div class="form-group">
+        <label><h6>Autor(es): </h6></label>
+        <input #itemAutor type='text' placeholder='Autor'>
+        <br>
+      </div>
+
+      <div class="form-group">
+        <label><h6>Tipo de Bibliografia: </h6></label>
+        <select [(ngModel)]="selectedTipoLivro" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let t of tiposLivro" [ngValue]="t.id">{{t.title}}</option>
+        </select>
+        <br>
+      </div>
+
+      <button type="button" class="btn btn-primary" (click)="add(itemTitle.value, itemAutor.value)">Adicionar</button><br>
+  </form>
+
+  <br>
+  <br>
+  <div class="d-inline-flex p-2 bd-highlight"><h3>Editar ou Mostrar Livro </h3></div>
+  <br>
+  <br>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label><h6>Título: </h6></label>
+    <input type="text" [(ngModel)]="selectedLivro.title"/><br>
+    <br>
+  </div>
+
+  <div class="form-group">
+    <label><h6>Autor(es): </h6></label>
+    <input type="text" [(ngModel)]="selectedLivro.autor"/><br>
+    <br>
+  </div>
+
+  <div class="form-group">
+    <br>
+    <label><h6>&nbsp;&nbsp;&nbsp;&nbsp;Tipo de Bibliografia: </h6></label>
+    <select [(ngModel)]="selectedTipoLivro" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let t of tiposLivro" [ngValue]="t">{{t.title}}</option>
+    </select>
+  </div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <button type="button" class="btn btn-primary" (click)="update(selectedLivro.id,
+  selectedLivro.title, selectedLivro.autor, selectedTipoLivro.id)">Atualizar</button><br>
+  
+  {{ error?.message }}
+

@@ -1,0 +1,88 @@
+<div style="text-align:center">
+    <div class="p-3 mb-2 bg-info text-white">
+       <h3>Aulas para a turma {{ selectedTurma.codigo }} da Disciplina de {{ selectedDisciplina.title }} de {{ selectedCurso.title }}</h3>
+    </div>
+    </div>
+    <ul>
+      <li *ngFor="let item of items">
+        <h2>
+          {{ item.conteudo }}
+          <button (click)="delete(item.id)">DELETE</button>
+          <button (click)="aulaClicked(item)">DISPLAY</button>
+        </h2>
+      </li>
+    </ul>
+    <br>
+    <br>
+    <div class="d-inline-flex p-2 bd-highlight"><h3>Adicionar Nova Aula</h3></div>
+    <br>
+    <br>
+  
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+          <label><h6>Semana: </h6></label>
+          <input #itemSemana type='number'>
+          <br>
+        </div>
+  
+        <div class="form-group">
+          <label><h6>Data: </h6></label>
+          <input #itemData type='date'>
+          <br>
+        </div>
+  
+        <div class="form-group">
+          <label><h6>Tipo de Aula: </h6></label>
+          <select [(ngModel)]="selectedTipoAula" [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let t of tiposAula" [ngValue]="t.id">{{t.title}}</option>
+          </select>
+          <br>
+        </div>
+
+        <div class="form-group">
+          <label><h6>Conteúdo: </h6></label>
+          <input #itemConteudo type='text' placeholder="Conteúdo">
+          <br>
+        </div>
+  
+        <button type="button" class="btn btn-primary" (click)="add(itemSemana.value, itemData.value, itemConteudo.value)">Adicionar</button><br>
+    </form>
+  
+    <br>
+    <br>
+    <div class="d-inline-flex p-2 bd-highlight"><h3>Editar ou Mostrar Aula </h3></div>
+    <br>
+    <br>
+  
+    <div class="form-group mx-sm-3 mb-2">
+      <label><h6>Semana: </h6></label>
+      <input type="number" [(ngModel)]="selectedAula.semana"/><br>
+      <br>
+    </div>
+  
+    <div class="form-group">
+      <label><h6>Data: </h6></label>
+      <input type="date" [(ngModel)]="selectedAula.data"/><br>
+      <br>
+    </div>
+  
+    <div class="form-group">
+      <br>
+      <label><h6>&nbsp;&nbsp;&nbsp;&nbsp;Tipo de Aula: </h6></label>
+      <select [(ngModel)]="selectedTipoAula" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let t of tiposAula" [ngValue]="t">{{t.title}}</option>
+      </select>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="form-group">
+        <label><h6>Conteúdo: </h6></label>
+        <input type='text' [(ngModel)]="selectedAula.conteudo"/><br>
+        <br>
+    </div>
+  
+    <button type="button" class="btn btn-primary" (click)="update(selectedAula.id,
+    selectedAula.semana, selectedAula.data, selectedTipoAula.id, selectedAula.conteudo)">Atualizar</button><br>
+    
+    {{ error?.message }}
+  
+  

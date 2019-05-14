@@ -1,0 +1,134 @@
+<div style="text-align:center">
+  <h1>
+    Plano de Ensino<br>
+    {{ selectedCurso.title }}
+  </h1>
+</div><br><br>
+
+<div style="text-align:center">
+  Disciplina {{ selectedDisciplina.title }} &nbsp;&nbsp; Carga Horária<br>
+  Professor Responsável <b>Evaldo ainda deve implementar</b> &nbsp;Teoria&nbsp;Prática&nbsp;Total<br>
+  Coordenador <b>Evaldo ainda deve implementar</b> &nbsp;{{ horasTeoria }}&nbsp;{{ horasPratica }}&nbsp;{{ horasTeoria + horasPratica }} <br>
+  Atualização&nbsp;{{ dataAtual }} &nbsp; Validação - NDE {{ dataAtual }} 
+</div><br><br>
+
+<div style="text-align:left">
+  <b>Ementa:</b><br>
+  {{ selectedDisciplina.ementa }}
+</div><br>
+
+<div style="text-align:left">
+  <b>Objetivos:</b><br>
+
+  <ul>
+    <li *ngFor="let obj of objetivos">
+      {{ obj.objetivo.title }}
+    </li>
+  </ul><br>
+
+  <p>Esta disciplina contribui com o desenvolvimento dos seguintes objetivos e competências
+     do egresso estabelecidos para o curso no PPC: </p>
+
+  <ul>
+    <li *ngFor="let comp of competencias">
+      {{ comp.competencia.title }}
+    </li>
+  </ul><br>
+
+  <p>Para que tais objetivos sejam alcançados ao final desta disciplina os estudantes
+    deverão demonstrar as seguintes competências e habilidades:</p>
+
+  <ul>
+    <li *ngFor="let hab of habilidades">
+      {{ hab.habilidade.title }}
+    </li>
+  </ul><br>
+</div><br>
+
+<div style="text-align:left">
+    <b>Conteúdo Programático:</b><br>
+    
+    <b>Módulo 1</b><br>
+
+    <ul style="list-style-type:none">
+      <li *ngFor="let c of conteudoM1">
+        {{ c.title }}
+      </li>
+    </ul><br>
+
+    <b>Módulo 2</b><br>
+
+    <ul style="list-style-type:none">
+      <li *ngFor="let c of conteudoM2">
+        {{ c.title }}
+      </li>
+    </ul><br>
+</div><br>
+
+<div style="text-align:left">
+    <b>Metodologia de Ensino:</b><br>
+
+    <ul>
+      <li *ngFor="let me of metodologiasEnsino">
+        {{ me.description }}
+      </li>
+    </ul><br>
+</div><br>
+
+<div style="text-align:left">
+    <b>Avaliação:</b><br>
+
+    <p>A avaliação contínua será realizada via Blackboard, onde serão disponibilizados
+      exercícios após o término de cada assunto abordado na ementa. A nota da
+      disciplina será composta de exercícios e por duas provas teóricas, sendo
+      uma ao final de cada módulo. A avaliação substitutiva contempla os tópicos
+      apresentados durante todo o semestre. A substitutiva é opcional, mas se 
+      realizada, irá substituir uma das avaliações ou serão consideradas as maiores notas
+      obtidas. As avaliações serão realizadas individualmente e sem consulta.
+      A média final será calculada da seguinte maneira:</p>
+
+    <p style="text-align:center">Média Final = 0.45 * Módulo1 + 0.45 * Módulo2 + 0.1 * A</p>
+
+    <p>A avaliação institucional (A) refere-se às atividades e/ou avaliações propostas,
+      semestralmente, pela FACENS.</p>
+    
+    <p>A composição da nota de cada módulo será realizada conforme demonstrado no 
+      quadro abaixo:</p>
+
+    <div style="text-align:center">
+      Item &nbsp; Atividade &nbsp; Peso<br>
+      Módulo 1<br>
+      1 &nbsp; Metodologias Ativas &nbsp; 20%<br>
+      2 &nbsp; Avaliação do Módulo 1&nbsp; 80%<br>
+      Módulo 2<br>
+      1 &nbsp; Metodologias Ativas &nbsp; 20%<br>
+      2 &nbsp; Avaliação do Módulo 2&nbsp; 80%<br>
+    </div>
+</div><br>
+
+<div style="text-align:left">
+    <b>Bibliografia Básica:</b><br><br>
+
+    <ol>
+      <li *ngFor="let l of livrosBasicos">
+        {{ l.livro.title }} - {{ l.livro.autor }}
+      </li>
+    </ol><br>
+
+    <b>Bibliografia Complementar:</b><br><br>
+
+    <ol>
+      <li *ngFor="let l of livrosComplementares">
+        {{ l.livro.title }} - {{ l.livro.autor }}
+      </li>
+    </ol><br>   
+</div>
+
+<div style="text-align:left">
+    <p>Este documento deve ser complementado por ata do NDE aprovando o respectivo plano de
+       ensino e referendando as bibliografias Básica e Complementar.</p>
+    
+    <p>Sorocaba, {{ dataAtual }}</p>
+</div><br>
+{{ error?.message }}
+

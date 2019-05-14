@@ -1,0 +1,60 @@
+<div style="text-align:center">
+  <div class="p-3 mb-2 bg-info text-white">
+     <h1>Conteúdo de {{ selectedDisciplina.title }} para {{ selectedCurso.title }}</h1>
+  </div>
+  </div>
+  <ul>
+    <li *ngFor="let item of items">
+      <h2>
+        {{ item.title }}
+        <button (click)="delete(item.id)">DELETE</button>
+        <button (click)="conteudoClicked(item)">DISPLAY</button>
+      </h2>
+    </li>
+  </ul>
+  <br>
+  <br>
+  <div class="d-inline-flex p-2 bd-highlight"><h3>Adicionar Novo Conteúdo </h3></div>
+  <br>
+  <br>
+
+  <form class="form-inline">
+      <div class="form-group mx-sm-3 mb-2">
+        <label><h6>Nome:</h6></label>
+        <input #itemTitle type='text' placeholder='Nome'>
+        <br>
+      </div>
+      <div class="form-group">
+        <label><h6>Módulo:</h6></label>
+        <select [(ngModel)]="selectedModulo" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let t of tipoModulos" [ngValue]="t">{{t}}</option>
+        </select>
+        <br>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" (click)="add(itemTitle.value)">Adicionar</button><br>
+  </form>
+
+  <br>
+  <br>
+  <div class="d-inline-flex p-2 bd-highlight"><h3>Editar ou Mostrar Conteúdo</h3></div>
+  <br>
+  <br>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label><h6>Nome:</h6></label>
+    <input type="text" [(ngModel)]="selectedConteudo.title"/><br>
+    <br>
+  </div>
+  <div class="form-group">
+    <label><h6>Módulo:</h6></label>
+    <select [(ngModel)]="selectedModulo" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let t of tipoModulos" [ngValue]="t">{{t}}</option>
+    </select>
+    <br>
+  </div>&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button" class="btn btn-primary" (click)="update(selectedConteudo.id,
+  selectedConteudo.title, selectedModulo)">Atualizar</button><br>
+  
+  
+  
+  {{ error?.message }}

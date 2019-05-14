@@ -72,6 +72,61 @@ export class ShowCursoDisciplinaComponent implements OnInit {
 
   goToTurmas(item)
   {
-    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/add-turmas`]);
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/turmas`]);
+  }
+
+  goToConteudos(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/conteudos`]);
+  }
+
+  goToMetodologiasEnsino(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/metodologias-ensino`]);
+  }
+
+  goToAddObjetivos(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/add-objetivos`])
+  }
+
+  goToObjetivos(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/objetivos`])
+  }
+
+  goToAddCompetencias(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/add-competencias`])
+  }
+
+  goToCompetencias(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/competencias`])
+  }
+
+  goToAddHabilidades(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/add-habilidades`])
+  }
+
+  goToHabilidades(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/habilidades`])
+  }
+
+  goToAddLivros(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/add-livros`])
+  }
+
+  goToLivros(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/livros`])
+  }
+
+  goToPlanoEnsino(item)
+  {
+    this.router.navigate([`curso/${item.curso.id}/disciplina/${item.disciplina.id}/curso-disciplina/${item.id}/plano-ensino`])
   }
 }

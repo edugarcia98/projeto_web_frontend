@@ -1,0 +1,28 @@
+<div style="text-align:center">
+  <div class="p-3 mb-2 bg-info text-white">
+    <h1>
+      Habilidades
+    </h1>
+  </div>
+    <br><br>
+  </div>
+  <ul>
+    <li *ngFor="let item of items">
+      <h3>
+        {{ item.title }}
+        <button type="button" class="btn btn-primary" (click)="habilidadeClicked(item)">SELECIONAR</button>
+      </h3>
+    </li>
+  </ul>
+  
+  <br><br>
+  <h5>Adicionar nova Habilidade à disciplina de {{ selectedDisciplina.title }} de {{ selectedCurso.title }}</h5>
+  
+  <div class="form-group mx-sm-3 mb-2">
+    <label><h6>Nome:</h6></label>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)] = "selectedHabilidade.title" disabled/><br>
+    <label><h6>Descrição:</h6></label>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)] = "selectedHabilidade.description" disabled/><br>
+    <button type="button" class="btn btn-primary" (click)="add(selectedCursoDisciplina, 
+    selectedHabilidade)">Adicionar</button>
+  </div>

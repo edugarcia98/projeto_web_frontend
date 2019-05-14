@@ -90,5 +90,5 @@ export class ObjetivoComponent implements OnInit {
       }
     );
     location.reload();
-  }_
+  }
 }

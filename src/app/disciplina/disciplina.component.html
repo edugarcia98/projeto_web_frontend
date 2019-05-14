@@ -37,8 +37,13 @@
         <select [(ngModel)]="selectedCredito" [ngModelOptions]="{standalone: true}">
             <option *ngFor="let c of creditos" [ngValue]="c">{{c}}</option>
         </select>
+      </div>
+      <div class="form-group">
+        <label><h6>Ementa da Disciplina:</h6></label>
+        <input #itemEmenta type='text' placeholder='Ementa'>
+        <br>
       </div>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-primary" (click)="add(itemTitle.value)">Adicionar</button><br>
+        <button type="button" class="btn btn-primary" (click)="add(itemTitle.value, itemEmenta.value)">Adicionar</button><br>
   </form>
 
   <br>
@@ -65,9 +70,14 @@
     <select [(ngModel)]="selectedCredito" [ngModelOptions]="{standalone: true}">
         <option *ngFor="let c of creditos" [ngValue]="c">{{c}}</option>
     </select>
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label><h6>Ementa da Disciplina:</h6></label>
+    <input type="text" [(ngModel)]="selectedDisciplina.ementa"/><br>
+    <br>
   </div>&nbsp;&nbsp;&nbsp;&nbsp;
   <button type="button" class="btn btn-primary" (click)="update(selectedDisciplina.id,
-    selectedDisciplina.title, selectedTipo, selectedCredito)">Atualizar</button><br>
+    selectedDisciplina.title, selectedTipo, selectedCredito, selectedDisciplina.ementa)">Atualizar</button><br>
   
   
   
