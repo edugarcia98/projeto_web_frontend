@@ -18,8 +18,8 @@ import { DisciplinaService }    from './disciplina/disciplina.service';
 import { CursoDisciplinaComponent } from './curso-disciplina/curso-disciplina.component'
 import { CursoDisciplinaService } from './curso-disciplina/curso-disciplina.service';
 import { ShowCursoDisciplinaComponent } from './show-curso-disciplina/show-curso-disciplina.component';
-import { RegisterComponent } from './register/register.component'
-import { RegisterServiceService } from './register/register-service.service';
+import { RegisterComponent } from './user/register/register.component';
+import { RegisterService } from './user/register/register.service';
 import { TurmaComponent } from './turma/turma.component'
 import { TurmaService } from './turma/turma.service';
 import { LivroComponent } from './livro/livro.component';
@@ -119,7 +119,7 @@ const appRoutes: Routes = [
     DisciplinaService,
     CursoDisciplinaService,
     TurmaService,
-    RegisterServiceService,
+    RegisterService,
     LivroService,
     CursoDisciplinaLivroService,
     CursoDisciplinaObjetivoService,
