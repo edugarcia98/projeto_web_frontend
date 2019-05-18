@@ -1,4 +1,3 @@
-import { LoginComponent } from './user/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +19,7 @@ import { CursoDisciplinaService } from './curso-disciplina/curso-disciplina.serv
 import { ShowCursoDisciplinaComponent } from './show-curso-disciplina/show-curso-disciplina.component';
 import { RegisterComponent } from './user/register/register.component';
 import { RegisterService } from './user/register/register.service';
+import { LoginComponent } from './user/login/login.component';
 import { TurmaComponent } from './turma/turma.component'
 import { TurmaService } from './turma/turma.service';
 import { LivroComponent } from './livro/livro.component';
