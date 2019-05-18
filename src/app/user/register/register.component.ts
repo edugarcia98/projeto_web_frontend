@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { UserInterface } from 'src/app/models/user-interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { RegisterService } from './register.service';
-import { Register } from 'src/app/register/register';
+import { Register, TipoUser } from './register';
 
 @Component({
   selector: 'app-register',
@@ -15,11 +15,18 @@ import { Register } from 'src/app/register/register';
 export class RegisterComponent implements OnInit {
 
   items: Register[];
+  tiposUser: TipoUser[] =
+  [
+    { id: 'A', title: 'Administrador' },
+    { id: 'C', title: 'Coordenador' },
+    { id: 'P', title: 'Professor' }
+  ]
   private user: UserInterface = {
     name: '',
     email: '',
     password: ''
   };
+  selectedTipoUser;
   public isError = false;
   public msgError = '';
 
@@ -62,7 +69,7 @@ export class RegisterComponent implements OnInit {
   }
 
   add(name: string, email: string, password: string){
-    this.api.createRegister(name, password, email).subscribe(
+    this.api.createRegister(name, password, email, this.selectedTipoUser).subscribe(
       (item: Register) => 
       {
         this.items.push(item);

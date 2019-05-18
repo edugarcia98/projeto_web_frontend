@@ -9,7 +9,7 @@ export class RegisterService {
   
   constructor(private http: HttpClient) { }
 
-  createRegister(usuario: string, password: string, email: string) {
-    return this.http.post(this.registerRoot.concat('register/'), {usuario, password, email});
+  createRegister(usuario: string, password: string, email: string, tipo: string) {
+    return this.http.post(this.registerRoot.concat('register/'), {usuario, password, email, tipo});
   }
 }
