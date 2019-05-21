@@ -3,6 +3,7 @@ export interface Register {
     usuario: string;
     password: string;
     email: string;
+    tipo: string;
 }
 
 export interface TipoUser{

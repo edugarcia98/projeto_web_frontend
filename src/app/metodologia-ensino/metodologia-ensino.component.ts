@@ -32,8 +32,8 @@ export class MetodologiaEnsinoComponent implements OnInit {
               private apiDisciplina: DisciplinaService,
               private apiCursoDisciplina: CursoDisciplinaService) {
     this.selectedMetodologiaEnsino = {id: -1, description: '', cursoDisciplina: null};
-    this.selectedCurso = {id: -1, title: '', description: ''};
-    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: ''};
+    this.selectedCurso = {id: -1, title: '', description: '', coordenador_id: -1, coordenador: null};
+    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: '', professor_id: -1, professor: null};
     this.selectedCursoDisciplina = {id: -1, curso_id: -1, disciplina_id: -1, curso: null, disciplina: null};
     this.items = [];
   }

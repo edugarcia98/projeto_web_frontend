@@ -25,8 +25,8 @@ export class CursoDisciplinaComponent implements OnInit {
               private apiCurso: CursoService,
               private apiDisciplina: DisciplinaService,
               private route: ActivatedRoute) {
-    this.selectedCurso = {id: -1, title: '', description: ''};
-    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: ''};
+    this.selectedCurso = {id: -1, title: '', description: '', coordenador_id: -1, coordenador: null};
+    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: '', professor_id: -1, professor: null};
   
   }
 

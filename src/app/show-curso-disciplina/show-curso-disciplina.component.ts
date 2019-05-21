@@ -27,7 +27,7 @@ export class ShowCursoDisciplinaComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) {
     this.selectedCursoDisciplina = {id: -1, curso_id: -1, disciplina_id: -1, curso: null, disciplina: null};
-    this.selectedCurso = {id: -1, title: '', description: ''};
+    this.selectedCurso = {id: -1, title: '', description: '', coordenador_id: -1, coordenador: null};
     this.items = [];
   }
 

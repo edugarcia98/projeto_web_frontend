@@ -7,9 +7,9 @@
 
 <div style="text-align:center">
   Disciplina &nbsp; {{ selectedDisciplina.title }} &nbsp; Carga Horária<br>
-  Professor &nbsp; <b>Implementar</b> &nbsp; <b>Teoria</b>&nbsp;<b>Prática</b>&nbsp;<b>Total</b><br>
-  e-mail &nbsp; <b>Implementar</b> &nbsp; {{ horasTeoria }}&nbsp;{{ horasPratica }}&nbsp;{{ horasTeoria + horasPratica }}<br>
-  Turma {{ selectedTurma.codigo }} &nbsp;&nbsp; Coordenador <b>Implementar</b><br>
+  Professor &nbsp; {{ selectedDisciplina.professor.usuario }} &nbsp; <b>Teoria</b>&nbsp;<b>Prática</b>&nbsp;<b>Total</b><br>
+  e-mail &nbsp; {{ selectedDisciplina.professor.email }} &nbsp; {{ horasTeoria }}&nbsp;{{ horasPratica }}&nbsp;{{ horasTeoria + horasPratica }}<br>
+  Turma {{ selectedTurma.codigo }} &nbsp;&nbsp; Coordenador {{ selectedCurso.coordenador.usuario }}<br>
 </div><br>
 
 <div style="text-align:center">

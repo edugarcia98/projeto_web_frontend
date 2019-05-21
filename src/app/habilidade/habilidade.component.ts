@@ -22,7 +22,7 @@ export class HabilidadeComponent implements OnInit {
               private route: ActivatedRoute,
               private apiCurso: CursoService) {
   this.selectedHabilidade = {id: -1, title: '', description: '', curso: null};
-  this.selectedCurso = {id: -1, title: '', description: ''};
+  this.selectedCurso = {id: -1, title: '', description: '', coordenador_id: -1, coordenador: null};
   this.items = [];
   }
 

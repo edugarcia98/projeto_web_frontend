@@ -9,6 +9,11 @@ export class RegisterService {
   
   constructor(private http: HttpClient) { }
 
+  getRegisters()
+  {
+    return this.http.get(this.registerRoot.concat('register/'));
+  }
+
   createRegister(usuario: string, password: string, email: string, tipo: string) {
     return this.http.post(this.registerRoot.concat('register/'), {usuario, password, email, tipo});
   }

@@ -18,16 +18,13 @@ export class CursoService {
     return this.http.get(this.cursoRoot.concat(`curso/${id}/`));
   }
 
-  createCurso(title: string, description: string) {
-    return this.http.post(
-      this.cursoRoot.concat('curso/'),
-      { title, description }
-    );
+  createCurso(title: string, description: string, coordenador_id: number) {
+    return this.http.post(this.cursoRoot.concat('curso/'), { title, description, coordenador_id });
   }
 
-  updateCurso(id: number, title: string, description: string)
+  updateCurso(id: number, title: string, description: string, coordenador_id: number)
   {
-    return this.http.put(this.cursoRoot.concat(`curso/${id}/`), {title, description})
+    return this.http.put(this.cursoRoot.concat(`curso/${id}/`), {title, description, coordenador_id});
   }
 
   deleteCurso(id: number) {
