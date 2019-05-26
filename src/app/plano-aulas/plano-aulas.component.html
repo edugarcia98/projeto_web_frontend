@@ -1,57 +1,60 @@
-<div style="text-align:center">
-  <h1>
-    PLANO DE AULAS<br>
-    {{ selectedCurso.title }}-{{ selectedTurma.semestre }}
-  </h1>
-</div><br><br>
+<div id="content">
+  <div style="text-align:center">
+    <h1>
+      PLANO DE AULAS<br>
+      {{ selectedCurso.title }}-{{ selectedTurma.semestre }}
+    </h1>
+  </div><br><br>
 
-<div style="text-align:center">
-  Disciplina &nbsp; {{ selectedDisciplina.title }} &nbsp; Carga Horária<br>
-  Professor &nbsp; {{ selectedDisciplina.professor.usuario }} &nbsp; <b>Teoria</b>&nbsp;<b>Prática</b>&nbsp;<b>Total</b><br>
-  e-mail &nbsp; {{ selectedDisciplina.professor.email }} &nbsp; {{ horasTeoria }}&nbsp;{{ horasPratica }}&nbsp;{{ horasTeoria + horasPratica }}<br>
-  Turma {{ selectedTurma.codigo }} &nbsp;&nbsp; Coordenador {{ selectedCurso.coordenador.usuario }}<br>
-</div><br>
+  <div style="text-align:center">
+    Disciplina &nbsp; {{ selectedDisciplina.title }} &nbsp; Carga Horária<br>
+    Professor &nbsp; {{ selectedDisciplina.professor.usuario }} &nbsp; <b>Teoria</b>&nbsp;<b>Prática</b>&nbsp;<b>Total</b><br>
+    e-mail &nbsp; {{ selectedDisciplina.professor.email }} &nbsp; {{ horasTeoria }}&nbsp;{{ horasPratica }}&nbsp;{{ horasTeoria + horasPratica }}<br>
+    Turma {{ selectedTurma.codigo }} &nbsp;&nbsp; Coordenador {{ selectedCurso.coordenador.usuario }}<br>
+  </div><br>
 
-<div style="text-align:center">
-  <b>Semana</b>&nbsp;<b>Data</b>&nbsp;<b>Teoria ou Prática</b>&nbsp;<b>Conteúdo</b><br>
+  <div style="text-align:center">
+    <b>Semana</b>&nbsp;<b>Data</b>&nbsp;<b>Teoria ou Prática</b>&nbsp;<b>Conteúdo</b><br>
 
-  <ul style="list-style-type:none">
-    <li *ngFor="let a of aulas">
-      {{ a.semana }} &nbsp; {{ a.data | date:'dd/MM/yyyy' }} &nbsp; {{ a.tipo }} &nbsp; {{ a.conteudo }}
-    </li>
-  </ul><br>
+    <ul style="list-style-type:none">
+      <li *ngFor="let a of aulas">
+        {{ a.semana }} &nbsp; {{ a.data | date:'dd/MM/yyyy' }} &nbsp; {{ a.tipo }} &nbsp; {{ a.conteudo }}
+      </li>
+    </ul><br>
+  </div>
+
+  <div style="text-align:center">
+    <b>Item</b>&nbsp;<b>Tipo*</b>&nbsp;<b>Bibliografia</b><br>
+
+    <ol>
+      <li *ngFor="let l of livros">
+        {{ l.livro.bibliografia }} &nbsp; {{ l.livro.title }} - {{ l.livro.autor }} 
+      </li>
+    </ol>
+
+    Tipo &nbsp;&nbsp; B - Básica - C - Complementar
+  </div><br>
+
+  <div style="text-align:center">
+    <b>Composição das Notas</b><br>
+
+    Atividade &nbsp; Descrição &nbsp; Peso<br>
+    Módulo 1 &nbsp; Atividades em sala 20% Avaliação 80% &nbsp; 45%<br>
+    Módulo 2 &nbsp; Atividades em sala 20% Avaliação 80% &nbsp; 45%<br>             
+    Avaliação Institucional &nbsp; Nota obtida na avaliação institucional &nbsp; 10%<br>
+    
+  </div><br>
+
+  <div style="text-align:center">
+    <b>Recursos necessários:</b><br>
+
+    {{ selectedTurma.recursos }}
+  </div><br>
+
+  <div style="text-align:center">
+    Sorocaba, {{ dataAtual }}<br><br>
+    Ass Professor<br>
+    Ass Coordenador<br>
+  </div>
 </div>
-
-<div style="text-align:center">
-  <b>Item</b>&nbsp;<b>Tipo*</b>&nbsp;<b>Bibliografia</b><br>
-
-  <ol>
-    <li *ngFor="let l of livros">
-      {{ l.livro.bibliografia }} &nbsp; {{ l.livro.title }} - {{ l.livro.autor }} 
-    </li>
-  </ol>
-
-  Tipo &nbsp;&nbsp; B - Básica - C - Complementar
-</div><br>
-
-<div style="text-align:center">
-  <b>Composição das Notas</b><br>
-
-  Atividade &nbsp; Descrição &nbsp; Peso<br>
-  Módulo 1 &nbsp; Atividades em sala 20% Avaliação 80% &nbsp; 45%<br>
-  Módulo 2 &nbsp; Atividades em sala 20% Avaliação 80% &nbsp; 45%<br>             
-  Avaliação Institucional &nbsp; Nota obtida na avaliação institucional &nbsp; 10%<br>
-  
-</div><br>
-
-<div style="text-align:center">
-  <b>Recursos necessários:</b><br>
-
-  {{ selectedTurma.recursos }}
-</div><br>
-
-<div style="text-align:center">
-  Sorocaba, {{ dataAtual }}<br><br>
-  Ass Professor<br>
-  Ass Coordenador<br>
-</div>
+<button (click)="downloadPDF()">Gerar PDF</button>
