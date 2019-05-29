@@ -10,6 +10,29 @@
       <li *ngFor="let item of items">
         <h3>
           {{ item.disciplina.title }}
+
+          <div class="btn-group" appDropDown #r="appDropDown" >
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+               
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu" [ngClass]="{'show':r.isOpen}" >
+              <li><a role="button" class="dropdown-item" (click)="delete(item.id)">DELETAR</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToTurmas(item)">TURMA</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToConteudos(item)">CONTEÚDO</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToMetodologiasEnsino(item)">METODOLOGIA</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToAddObjetivos(item)">ADICIONAR OBJETIVO</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToObjetivos(item)">OBJETIVOS</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToAddCompetencias(item)">ADICIONAR COMPETENCIA</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToCompetencias(item)">COMPETÊNCIAS</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToAddHabilidades(item)">ADICIONAR HABILIDADE</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToHabilidades(item)">HABILIDADES</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToAddLivros(item)">ADICIONAR LIVRO</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToLivros(item)">LIVROS</a></li>
+              <li><a role="button" class="dropdown-item" (click)="goToPlanoEnsino(item)">PLANO DE ENSINO</a></li>
+            </ul>
+          </div>
+          
+          <!--
           <button type="button" class="btn btn-primary" (click)="delete(item.id)">DELETE</button>
           <button type="button" class="btn btn-primary" (click)="goToTurmas(item)">TURMA</button>
           <button type="button" class="btn btn-primary" (click)="goToConteudos(item)">CONTEÚDO</button>
@@ -22,7 +45,30 @@
           <button type="button" class="btn btn-primary" (click)="goToHabilidades(item)">HABILIDADES</button>
           <button type="button" class="btn btn-primary" (click)="goToAddLivros(item)">ADICIONAR LIVROS</button>
           <button type="button" class="btn btn-primary" (click)="goToLivros(item)">LIVROS</button>
-          <button type="button" class="btn btn-primary" (click)="goToPlanoEnsino(item)">PLANO DE ENSINO</button>
+          <button type="button" class="btn btn-primary" (click)="goToPlanoEnsino(item)">PLANO DE ENSINO</button>-->       
+          
+          <!--
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Opções
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" (click)="delete(item.id)">dfdfd</a>
+              <a class="dropdown-item" (click)="goToTurmas(item)">TURMA</a>
+              <a class="dropdown-item" (click)="goToConteudos(item)">CONTEÚDO</a>
+              <a class="dropdown-item" (click)="goToMetodologiasEnsino(item)">METODOLOGIA </a>
+              <a class="dropdown-item" (click)="goToAddObjetivos(item)">ADICIONAR </a>
+              <a class="dropdown-item" (click)="goToObjetivos(item)">OBJETIVOS</a>
+              <a class="dropdown-item" (click)="goToAddCompetencias(item)">ADICIONAR </a>
+              <a class="dropdown-item" (click)="goToCompetencias(item)">COMPETÊNCIAS</a>
+              <a class="dropdown-item" (click)="goToAddHabilidades(item)">ADICIONAR </a>
+              <a class="dropdown-item" (click)="goToHabilidades(item)">HABILIDADES</a>
+              <a class="dropdown-item" (click)="goToAddLivros(item)">ADICIONAR </a>
+              <a class="dropdown-item" (click)="goToLivros(item)">LIVROS</a>
+              <a class="dropdown-item" (click)="goToPlanoEnsino(item)">PLANO </a>
+    
+            </div>
+          </div>-->
         </h3>
       </li>
     </ul>

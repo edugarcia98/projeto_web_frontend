@@ -44,7 +44,7 @@ import { MetodologiaEnsinoComponent } from './metodologia-ensino/metodologia-ens
 import { MetodologiaEnsinoService } from './metodologia-ensino/metodologia-ensino.service';
 import { PlanoEnsinoComponent } from './plano-ensino/plano-ensino.component';
 import { PlanoAulasComponent } from './plano-aulas/plano-aulas.component';
-
+import { DropDownDirective } from './drop-down.directive';
 
 const appRoutes: Routes = [
   { path: 'curso',                  component: CursoComponent },
@@ -100,7 +100,8 @@ const appRoutes: Routes = [
     ConteudoComponent,
     MetodologiaEnsinoComponent,
     PlanoEnsinoComponent,
-    PlanoAulasComponent
+    PlanoAulasComponent,
+    DropDownDirective
   ],
   imports: [
     BrowserModule,

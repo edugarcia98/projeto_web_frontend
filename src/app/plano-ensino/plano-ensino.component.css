@@ -1,0 +1,10 @@
+table#tabelaensino table{
+    width: 400px;
+
+}
+table#tabelaensino td,table,tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
