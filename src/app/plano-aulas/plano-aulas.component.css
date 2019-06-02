@@ -1,0 +1,202 @@
+h1{
+    color: darkblue;
+    margin-left: 50%;
+    width: 150%;
+}
+table{
+    margin-left: -2%;
+}
+#disciplina{
+    margin-left: 0px;
+}
+#inicio{
+    margin-left: 50%;
+    width: 150%;
+    font: 100% sans-serif;
+    border-collapse: collapse;
+    empty-cells: show;
+    border: 1px solid black;
+}
+.tb42{
+    margin-left: 50%;
+    margin-right: 0%;
+}
+.t241{
+    background: darkblue;
+    font-size: 20px;
+    color: #FFF;
+    display:inline;
+	float:left;
+	width:63%;
+	margin-left:1px;
+	border:1px solid black;
+	text-align:center;
+}
+.rodape{
+    margin-top: 50px;
+    margin-left: 120%;
+    width: 50%;
+}
+.p2{
+    margin-left: 5%;
+}
+.t242{
+    background: darkblue;
+    font-size: 20px;
+    color: #FFF;
+    display:inline;
+	float:left;
+	width:241%;
+    margin-left:200px;
+	border:1px solid black;
+    text-align:center;
+    margin-top: -31px;
+}
+#disc{
+    margin-left: -80%;  
+    font: 100% sans-serif;
+    border-collapse: collapse;
+    empty-cells: show;
+    border: 1px solid black;
+}
+#a{
+    font-style: normal;
+    margin-left: 0%;
+}
+#b{
+    font-style: normal;
+    margin-left: 15%;
+}
+#c{
+    font-style: normal;
+    margin-left: 5%;
+}
+.t{
+    background: darkblue;
+    font-size: 20px;
+    color: #FFF;
+    display:inline;
+	float:left;
+	width:11%;
+	margin-left:1px;
+	border:1px solid black;
+	text-align:center;
+    
+}
+#tb2{
+    margin-left: 49%;
+    width: 275%;
+}
+li{
+    font-size: 10px;
+    color: black;
+    display:inline;
+	float:left;
+	width:50%;
+	margin-left:1px;
+	border:1px solid black;
+	text-align:center;
+    
+}
+.t2{
+    background: darkblue;
+    font-size: 20px;
+    color: #FFF;
+    display:inline;
+	float:left;
+	width:11%;
+	margin-left:1px;
+	border:1px solid black;
+	text-align:center;
+    
+}
+.t3{
+    background: darkblue;
+    font-size: 20px;
+    color: #FFF;
+    display:inline;
+	float:left;
+	width:28%;
+	margin-left:1px;
+	border:1px solid black;
+	text-align:center;
+}
+.t4{
+    background: darkblue;
+    font-size: 20px;
+    color: #FFF;
+    display:inline;
+	float:left;
+	width:5%;
+	margin-left:1px;
+	border:1px solid black;
+	text-align:center;
+    
+}
+#tb3{
+    margin-left: 49%;
+    width: 275%;
+}
+#tipo{
+    margin-left: 10%;
+    padding-right: 20%;
+    font-style: initial;
+}
+#rodape{
+    font-size: 20px;
+    display:inline;
+	float:left;
+	width:55%;
+	margin-left:1px;
+	border:1px solid black;
+	text-align:center;
+    
+}
+#tb4{
+    margin-left: 50%;
+    width: 275%;
+}
+
+.t5{
+    background: darkblue;
+    font-size: 20px;
+    color: #FFF;
+    display:inline;
+    float:left;
+    height: 50%;
+	width:55%;
+	margin-left:1px;
+	border:1px solid black;
+	text-align:center;
+}
+#tb3{
+    margin-left: 49%;
+    width: 275%;
+}
+.t23{
+    font-size: 20px;
+    display:inline;
+    float:left;
+    height: 60px;
+	width:12%;
+	border:1px solid black;
+	text-align:center;
+}
+.t234{
+    font-size: 20px;
+    display:inline;
+    float:left;
+    height: 60px;
+	width:31%;
+	border:1px solid black;
+	text-align:center;
+}
+.t232{
+    font-size: 20px;
+    display:inline;
+    float:left;
+    height: 60px;
+	width:305%;
+	border:1px solid black;
+	text-align:center;
+}
