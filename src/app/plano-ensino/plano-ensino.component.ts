@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CursoService } from '../curso/curso.service';
 import { Curso } from '../curso/curso';
@@ -26,6 +26,8 @@ import { CursoDisciplinaLivroService } from '../curso-disciplina-livro/curso-dis
 import { CursoDisciplinaLivro } from '../curso-disciplina-livro/curso-disciplina-livro';
 import { LivroService } from '../livro/livro.service';
 import { Livro } from '../livro/livro';
+import * as jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-plano-ensino',
@@ -54,6 +56,7 @@ export class PlanoEnsinoComponent implements OnInit {
   today: Date;
   mes: number;
   dataAtual: string;
+  xepOnline: any;
 
   constructor(private apiCursoDisciplina: CursoDisciplinaService,
               private apiCurso: CursoService,
@@ -70,8 +73,8 @@ export class PlanoEnsinoComponent implements OnInit {
               private apiCursoDisciplinaLivro: CursoDisciplinaLivroService,
               private route: ActivatedRoute) {
     this.selectedCursoDisciplina = {id: -1, curso_id: -1, disciplina_id: -1, curso: null, disciplina: null};
-    this.selectedCurso = {id: -1, title: '', description: ''};
-    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: ''};
+    this.selectedCurso = {id: -1, title: '', description: '', coordenador_id: -1, coordenador: null};
+    this.selectedDisciplina = {id: -1, title: '', tipo: '', creditos: -1, ementa: '', professor_id: -1, professor: null};
     this.objetivos = [];
     this.competencias = [];
     this.habilidades = [];
@@ -227,4 +230,21 @@ export class PlanoEnsinoComponent implements OnInit {
     )
   }
 
+  public downloadPDF()
+  {
+    var data = document.getElementById('content');  
+    html2canvas(data).then(canvas => {  
+      // Few necessary setting options  
+      var imgWidth = 208;   
+      var pageHeight = 295;    
+      var imgHeight = canvas.height * imgWidth / canvas.width;  
+      var heightLeft = imgHeight;  
+  
+      const contentDataURL = canvas.toDataURL('image/png')  
+      let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF  
+      var position = 0;  
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
+      pdf.save('plano-ensino.pdf'); // Generated PDF   
+    });  
+  }
 }

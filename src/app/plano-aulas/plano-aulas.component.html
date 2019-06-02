@@ -1,83 +1,89 @@
-<table>
-<div style="text-align:center">
-  <h1>
-    PLANO DE AULAS<br>
-    {{ selectedCurso.title }}-{{ selectedTurma.semestre }}
-  </h1>
-</div>
+<div id = "content">
+  <table>
+  <div style="text-align:center">
+    <h1>
+      PLANO DE AULAS<br>
+      {{ selectedCurso.title }}-{{ selectedTurma.semestre }}
+    </h1>
+  </div>
 
-<div id="disciplina" style="text-align:center">
-  <table id="inicio">
-  <tr> 
-    <td id="disc" > <b id="a">  Disciplina</b> <b id="b"> <!--{{ selectedDisciplina.title }}-->Desenvolvimento de Aplicações WEB -LAB </b> <b id="c"> Carga Horária </b> </td>
-  </tr>
-  <tr> 
-    <td id="disc"> <b id="a" >Professor &nbsp;</b>  <b id="b">Evaldo deve implementar</b> &nbsp; <b id="c">Teoria</b>&nbsp;<b>Prática</b>&nbsp;<b>Total</b></td>
-  </tr>
-  <tr> 
-    <td id="disc"> <b id="a"> e-mail &nbsp; </b> <b id="b">Evaldo deve implementar</b> &nbsp; <b id="c">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ horasTeoria }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ horasPratica }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ horasTeoria + horasPratica }}</b></td>
-  </tr>
-  <tr> 
-    <td id="disc"> Turma {{ selectedTurma.codigo }} &nbsp;&nbsp; Coordenador <b>Evaldo deve implementar</b></td>
-  </tr>
-</table>
-</div><br>
+  <div id="disciplina" style="text-align:center">
+    <table id="inicio">
+    <tr> 
+      <td id="disc" > <b id="a">  Disciplina</b> <b id="b"> <!--{{ selectedDisciplina.title }}-->Desenvolvimento de Aplicações WEB -LAB </b> <b id="c"> Carga Horária </b> </td>
+    </tr>
+    <tr> 
+      <td id="disc"> <b id="a" >Professor &nbsp;</b>  <b id="b">{{ selectedDisciplina.professor.usuario }}</b> &nbsp; <b id="c">Teoria</b>&nbsp;<b>Prática</b>&nbsp;<b>Total</b></td>
+    </tr>
+    <tr> 
+      <td id="disc"> <b id="a"> e-mail &nbsp; </b> <b id="b">{{ selectedDisciplina.professor.email }}</b> &nbsp; <b id="c">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ horasTeoria }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ horasPratica }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ horasTeoria + horasPratica }}</b></td>
+    </tr>
+    <tr> 
+      <td id="disc"> Turma {{ selectedTurma.codigo }} &nbsp;&nbsp; Coordenador <b>{{ selectedCurso.coordenador.usuario }}</b></td>
+    </tr>
+  </table>
+  </div><br>
 
-<table id="tb2" style="text-align:center">
-  <tr>
-  <td id="b2"><b class="t">Semana</b>&nbsp;<b class="t">Data</b>&nbsp;<b class="t">Teoria ou Prática</b>&nbsp;<b class="t">Conteúdo</b> <b class="t">Bibliografia</b></td><br>
-</tr>
-</table>
-<table>
-    <ul style="list-style-type:none">
-    <li *ngFor="let a of aulas">
-      {{ a.semana }} &nbsp; {{ a.data | date:'dd/MM/yyyy' }} &nbsp; {{ a.tipo }} &nbsp; {{ a.conteudo }}
-    </li>
-  </ul><br>
-</table>
-
-<table id="tb3">
-  <tr>
-  <td id="b3"><b class="t2">Item</b>&nbsp;<b class="t2">Tipo*</b>  <b class="t4" >&nbsp;</b><b class="t3">Bibliografia</b></td><br>
-</tr>
-  <ol>
-    <li *ngFor="let l of livros">
-      {{ l.livro.bibliografia }} &nbsp; {{ l.livro.title }} - {{ l.livro.autor }} 
-    </li>
-  </ol>
-<td id="rodape"> <b id="tipo"> Tipo </b>&nbsp;&nbsp; B - Básica - C - Complementar</td>
-</table><br>
-
-<div style="text-align:center">
-  <table id="tb4">
+  <table id="tb2" style="text-align:center">
     <tr>
-  <td id="b3"><b class="t5">Composição das Notas</b></td><br>
-</tr>
-<tr>
-  <td id="b4"><b class="t23">Atividade </b>&nbsp; <b class="t234">Descrição</b> &nbsp;<b class="t23"> Peso</b></td><br>
-</tr>
-<tr>
-  <td> <b class="t23"> Módulo 1 </b>&nbsp;<b class="t234">Atividades em sala 20% Avaliação 80%</b><b class="t23">&nbsp; 45%</b>  </td><br>
-</tr>
-<tr>
-  <td><b class="t23">Módulo 2</b>   &nbsp;<b class="t234">Atividades em sala 20% Avaliação 80%</b>  &nbsp;<b class="t23">45%</b> </td><br>  
-</tr>
-<tr>           
-<td><b class="t23">Avaliação Institucional</b> &nbsp;<b class="t234">Nota obtida na avaliação institucional</b>  &nbsp;<b class="t23">10%</b> </td>
-</tr><p>
-</table>
-</div><p>
+    <td id="b2"><b class="t">Semana</b>&nbsp;<b class="t">Data</b>&nbsp;<b class="t">Teoria ou Prática</b>&nbsp;<b class="t">Conteúdo</b> <b class="t">Bibliografia</b></td><br>
+  </tr>
+  </table>
+  <table>
+      <ul style="list-style-type:none">
+      <li *ngFor="let a of aulas">
+        {{ a.semana }} &nbsp; {{ a.data | date:'dd/MM/yyyy' }} &nbsp; {{ a.tipo }} &nbsp; {{ a.conteudo }}
+      </li>
+    </ul><br>
+  </table>
 
-<table class="tb42">
+  <table id="tb3">
+    <tr>
+    <td id="b3"><b class="t2">Item</b>&nbsp;<b class="t2">Tipo*</b>  <b class="t4" >&nbsp;</b><b class="t3">Bibliografia</b></td><br>
+  </tr>
+    <ol>
+      <li *ngFor="let l of livros">
+        {{ l.livro.bibliografia }} &nbsp; {{ l.livro.title }} - {{ l.livro.autor }} 
+      </li>
+    </ol>
+  <td id="rodape"> <b id="tipo"> Tipo </b>&nbsp;&nbsp; B - Básica - C - Complementar</td>
+  </table><br>
+
+  <div style="text-align:center">
+    <table id="tb4">
+      <tr>
+    <td id="b3"><b class="t5">Composição das Notas</b></td><br>
+  </tr>
   <tr>
-<td><b class="t241">Data</b>&nbsp;&nbsp;<b class="t242">Recursos necessários:</b></td>
-</tr>
-<tr>
- <td> <b class="t232">{{ selectedTurma.recursos }}</b></td>
-</tr>
-</table>
-<div class="rodape">
-  <p>Sorocaba, {{ dataAtual }}</p>
-  <p class="p2">Ass Professor</p>
-  <p>Ass Coordenador</p>
+    <td id="b4"><b class="t23">Atividade </b>&nbsp; <b class="t234">Descrição</b> &nbsp;<b class="t23"> Peso</b></td><br>
+  </tr>
+  <tr>
+    <td> <b class="t23"> Módulo 1 </b>&nbsp;<b class="t234">Atividades em sala 20% Avaliação 80%</b><b class="t23">&nbsp; 45%</b>  </td><br>
+  </tr>
+  <tr>
+    <td><b class="t23">Módulo 2</b>   &nbsp;<b class="t234">Atividades em sala 20% Avaliação 80%</b>  &nbsp;<b class="t23">45%</b> </td><br>  
+  </tr>
+  <tr>           
+  <td><b class="t23">Avaliação Institucional</b> &nbsp;<b class="t234">Nota obtida na avaliação institucional</b>  &nbsp;<b class="t23">10%</b> </td>
+  </tr><p>
+  </table>
+  </div><p>
+
+  <table class="tb42">
+    <tr>
+  <td><b class="t241">Data</b>&nbsp;&nbsp;<b class="t242">Recursos necessários:</b></td>
+  </tr>
+  <tr>
+  <td> <b class="t232">{{ selectedTurma.recursos }}</b></td>
+  </tr>
+  </table>
+  <div class="rodape">
+    <p>Sorocaba, {{ dataAtual }}</p>
+    <p class="p2">Ass Professor</p>
+    <p>Ass Coordenador</p>
+  </div>
+  </table>
 </div>
+
+<button (click)="downloadPDF()">Gerar PDF</button>
+

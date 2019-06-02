@@ -42,7 +42,14 @@
         <label><h6>Ementa da Disciplina:</h6></label>
         <input #itemEmenta type='text' placeholder='Ementa'>
         <br>
+      </div>
+      <div class="form-group">
+        <label><h6>&nbsp;&nbsp;&nbsp;&nbsp;Professor Responsável:</h6></label>
+        <select [(ngModel)]="selectedProfessor" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let p of professores" [ngValue]="p.id">{{p.usuario}}</option>
+        </select>
       </div>&nbsp;&nbsp;&nbsp;&nbsp;
+      
         <button type="button" class="btn btn-primary" (click)="add(itemTitle.value, itemEmenta.value)">Adicionar</button><br>
   </form>
 
@@ -75,9 +82,15 @@
     <label><h6>Ementa da Disciplina:</h6></label>
     <input type="text" [(ngModel)]="selectedDisciplina.ementa"/><br>
     <br>
-  </div>&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+  <div class="form-group">
+    <label><h6>&nbsp;&nbsp;&nbsp;&nbsp;Professor Responsável:</h6></label>
+    <select [(ngModel)]="selectedProfessor" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let p of professores" [ngValue]="p.id">{{p.usuario}}</option>
+    </select>
+  </div>
   <button type="button" class="btn btn-primary" (click)="update(selectedDisciplina.id,
-    selectedDisciplina.title, selectedTipo, selectedCredito, selectedDisciplina.ementa)">Atualizar</button><br>
+    selectedDisciplina.title, selectedTipo, selectedCredito, selectedDisciplina.ementa, selectedProfessor)">Atualizar</button><br>
   
   
   

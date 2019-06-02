@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CursoService } from './curso.service';
 import { Curso } from './curso'
+import { RegisterService } from '../user/register/register.service';
+import { Register } from '../user/register/register';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,11 +13,16 @@ import { Router } from '@angular/router';
 export class CursoComponent implements OnInit {
   public isCollapsed = false;
   items: Curso[];
+  coordenadores: Register[];
   error: any;
   selectedCurso;
+  selectedCoordenador = 0;
 
-  constructor(private api: CursoService, private router: Router) {
+  constructor(private api: CursoService,
+              private apiRegister: RegisterService,
+              private router: Router) {
     this.selectedCurso = {id: -1, title: '', description: ''};
+    this.coordenadores = [];      
   }
   
 
@@ -24,10 +31,27 @@ export class CursoComponent implements OnInit {
       (items: Curso[]) => this.items = items,
       (error: any) => this.error = error
     );
+
+    this.apiRegister.getRegisters().subscribe(
+      (items: Register[]) => 
+      {
+        items.forEach
+        (
+          (item: Register) =>
+          {
+            if(item.tipo == 'C')
+            {
+              this.coordenadores.push(item);
+            }
+          }
+        );
+      }
+    )
   }
 
   add(itemTitle: string, itemDescription: string) {
-    this.api.createCurso(itemTitle, itemDescription).subscribe(
+    console.log(this.selectedCoordenador);
+    this.api.createCurso(itemTitle, itemDescription, this.selectedCoordenador).subscribe(
       (item: Curso) => this.items.push(item)
     );
     location.reload();
@@ -53,7 +77,7 @@ export class CursoComponent implements OnInit {
 
   update(id: number, title: string, description: string)
   {
-    this.api.updateCurso(id, title, description).subscribe(
+    this.api.updateCurso(id, title, description, this.selectedCoordenador).subscribe(
       (item: Curso) => {
         item.title = title;
         item.description = description;

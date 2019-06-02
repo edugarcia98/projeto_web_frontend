@@ -34,6 +34,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;<input #itemTitle type='text' placeholder='Nome:'><br>
         <label><h6>Descrição:</h6></label>
         &nbsp;&nbsp;&nbsp;&nbsp;<input #itemDescription type='text' placeholder='Descrição:'><br>
+        <label><h6>Coordenador:</h6></label>
+        <select [(ngModel)]="selectedCoordenador" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let c of coordenadores" [ngValue]="c.id">{{c.usuario}}</option>
+        </select>
       <button type="button" class="btn btn-primary"(click)="add(itemTitle.value, itemDescription.value)">Adicionar</button><br>
     </div>
 
@@ -47,8 +51,12 @@
       <label>
         <h6>Descrição:</h6>
         </label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)] = "selectedCurso.description"/><br>
+      <label><h6>Coordenador:</h6></label>
+      <select [(ngModel)]="selectedCoordenador" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let c of coordenadores" [ngValue]="c.id">{{c.usuario}}</option>
+      </select>
       <button type="button" class="btn btn-primary" (click)="update(selectedCurso.id, selectedCurso.title,
-      selectedCurso.description)">Update</button>
+      selectedCurso.description, selectedCoordenador)">Update</button>
     </div>
 
 {{ error?.message }}
