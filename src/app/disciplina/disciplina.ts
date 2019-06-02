@@ -1,4 +1,4 @@
-import { Register } from '../register/register';
+import { Register } from '../user/register/register';
 
 export interface Disciplina  {
     id: number;

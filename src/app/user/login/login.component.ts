@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private location: Location) { }
-  private user: UserInterface = {
+  public user: UserInterface = {
     email: '',
     password: ''
   };

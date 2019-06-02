@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     { id: 'C', title: 'Coordenador' },
     { id: 'P', title: 'Professor' }
   ]
-  private user: UserInterface = {
+  public user: UserInterface = {
     name: '',
     email: '',
     password: ''

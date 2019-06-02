@@ -56,7 +56,7 @@
         <option *ngFor="let c of coordenadores" [ngValue]="c.id">{{c.usuario}}</option>
       </select>
       <button type="button" class="btn btn-primary" (click)="update(selectedCurso.id, selectedCurso.title,
-      selectedCurso.description, selectedCoordenador)">Update</button>
+      selectedCurso.description)">Update</button>
     </div>
 
 {{ error?.message }}
