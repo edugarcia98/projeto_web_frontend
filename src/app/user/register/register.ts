@@ -4,3 +4,8 @@ export interface Register {
     password: string;
     email: string;
 }
+
+export interface TipoUser{
+    id: string;
+    title: string;
+}
