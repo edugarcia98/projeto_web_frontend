@@ -6,7 +6,7 @@ import { Curso } from '../curso/curso';
 @Injectable()
 export class HabilidadeService {
 
-  private habilidadeRoot = 'http://localhost:8000/';
+  private habilidadeRoot = 'https://admfacens-web.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 

@@ -5,7 +5,7 @@ import { Aula } from './aula';
 @Injectable()
 export class AulaService {
 
-  private aulaRoot = 'http://localhost:8000/';
+  private aulaRoot = 'https://admfacens-web.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { TipoDisc } from './tipo-disc';
 @Injectable()
 export class DisciplinaService {
 
-  private disciplinaRoot = 'http://localhost:8000/';
+  private disciplinaRoot = 'https://admfacens-web.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 

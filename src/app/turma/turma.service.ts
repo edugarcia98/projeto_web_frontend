@@ -5,7 +5,7 @@ import { Turma } from './turma';
 @Injectable()
 export class TurmaService {
 
-  private turmaRoot = 'http://localhost:8000/';
+  private turmaRoot = 'https://admfacens-web.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 

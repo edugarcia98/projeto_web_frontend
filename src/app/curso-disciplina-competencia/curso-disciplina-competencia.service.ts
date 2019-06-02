@@ -5,7 +5,7 @@ import { CursoDisciplinaCompetencia } from '../curso-disciplina-competencia/curs
 @Injectable()
 export class CursoDisciplinaCompetenciaService {
 
-  private cursoDisciplinaCompetenciaRoot = 'http://localhost:8000/';
+  private cursoDisciplinaCompetenciaRoot = 'https://admfacens-web.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 

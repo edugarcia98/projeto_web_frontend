@@ -5,7 +5,7 @@ import { Conteudo } from './conteudo';
 @Injectable()
 export class ConteudoService {
 
-  private conteudoRoot = 'http://localhost:8000/';
+  private conteudoRoot = 'https://admfacens-web.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 

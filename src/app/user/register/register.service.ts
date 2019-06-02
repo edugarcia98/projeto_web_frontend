@@ -5,7 +5,7 @@ import { Register } from './register';
 @Injectable()
 export class RegisterService {
 
-  private registerRoot = 'http://localhost:8000/';
+  private registerRoot = 'https://admfacens-web.herokuapp.com/';
   
   constructor(private http: HttpClient) { }
 

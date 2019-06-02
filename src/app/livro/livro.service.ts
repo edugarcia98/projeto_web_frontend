@@ -5,7 +5,7 @@ import { Livro, TipoLivro } from './livro'
 @Injectable()
 export class LivroService {
 
-  private livroRoot = 'http://localhost:8000/';
+  private livroRoot = 'https://admfacens-web.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 

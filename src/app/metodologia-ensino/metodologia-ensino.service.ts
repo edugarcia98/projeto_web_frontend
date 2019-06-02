@@ -5,7 +5,7 @@ import { MetodologiaEnsino } from './metodologia-ensino';
 @Injectable()
 export class MetodologiaEnsinoService {
 
-  private metodologiaEnsinoRoot = 'http://localhost:8000/';
+  private metodologiaEnsinoRoot = 'https://admfacens-web.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
   
