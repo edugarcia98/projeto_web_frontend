@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ObjetivoService } from 'src/app/objetivo/objetivo.service';
 import { Objetivo } from 'src/app/objetivo/objetivo';
 import { CompetenciaService } from 'src/app/competencia/competencia.service';
 import { Competencia } from 'src/app/competencia/competencia';
+import { AuthService } from './user/login/auth.service';
 
 
 @Component({
@@ -12,7 +13,10 @@ import { Competencia } from 'src/app/competencia/competencia';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) 
+  {
+
+  }
 
   ngOnInit() {
   }
