@@ -55,6 +55,6 @@ export class RegisterComponent implements OnInit {
         alert("Usuário cadastrado com sucesso!");
       }
     );
-    location.reload();
+    //location.reload();
   }
 }
