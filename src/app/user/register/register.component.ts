@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { Router } from '@angular/router';
 import { UserInterface } from 'src/app/models/user-interface';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from '../login/auth.service';
 import { RegisterService } from './register.service';
 import { Register, TipoUser } from './register';
 
@@ -39,27 +39,6 @@ export class RegisterComponent implements OnInit {
     }
 
   ngOnInit() { }
-
-  onRegister(form: NgForm): void {
-    if (form.valid) {
-      this.authService
-        .registerUser(this.user.name, this.user.email, this.user.password)
-        .subscribe(user => {
-          this.authService.setUser(user);
-          const token = user.id;
-          this.authService.setToken(token);
-          this.router.navigate(['/user/profile']);
-          location.reload();
-        },
-        res => {
-          this.msgError = res.error.error.details.messages.email;
-          this.onIsError();
-        });
-    } else {
-      this.onIsError();
-    }
-
-  }
 
   onIsError(): void {
     this.isError = true;
