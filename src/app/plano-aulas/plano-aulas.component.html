@@ -28,10 +28,10 @@
   <td id="b2"><b class="t">Semana</b>&nbsp;<b class="t">Data</b>&nbsp;<b class="t">Teoria ou Prática</b>&nbsp;<b class="t">Conteúdo</b> <b class="t">Bibliografia</b></td><br>
 </tr>
 </table>
-<table>
+<table class="tab">
     <ul style="list-style-type:none">
     <li *ngFor="let a of aulas">
-      {{ a.semana }} &nbsp; {{ a.data | date:'dd/MM/yyyy' }} &nbsp; {{ a.tipo }} &nbsp; {{ a.conteudo }}
+     <td class="tab1"> {{ a.semana }} </td> &nbsp;<td class="tab2"> {{ a.data | date:'dd/MM/yyyy' }}</td> &nbsp;<td class="tab3"> {{ a.tipo }}</td> &nbsp; <td class="tab4">{{ a.conteudo }} </td><td class="tab5"> </td>
     </li>
   </ul><br>
 </table>
@@ -40,11 +40,11 @@
   <tr>
   <td id="b3"><b class="t2">Item</b>&nbsp;<b class="t2">Tipo*</b>  <b class="t4" >&nbsp;</b><b class="t3">Bibliografia</b></td><br>
 </tr>
-  <ol>
-    <li *ngFor="let l of livros">
-      {{ l.livro.bibliografia }} &nbsp; {{ l.livro.title }} - {{ l.livro.autor }} 
+  <ul>
+    <li  *ngFor="let l of livros">
+      <td class="tab12"> {{ l.livro.bibliografia }}</td> &nbsp;  <td class="tab22"> {{ l.livro.title }} - {{ l.livro.autor }}</td> 
     </li>
-  </ol>
+  </ul>
 <td id="rodape"> <b id="tipo"> Tipo </b>&nbsp;&nbsp; B - Básica - C - Complementar</td>
 </table><br>
 

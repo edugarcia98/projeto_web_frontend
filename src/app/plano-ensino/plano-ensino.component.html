@@ -1,31 +1,50 @@
-<div style="text-align:center">
+<table style="text-align:center">
   <h1>
     Plano de Ensino<br>
     {{ selectedCurso.title }}
   </h1>
+</table><br>
+
+<div id="disciplina" style="text-align:center">
+  <table id="inicio">
+  <tr>
+  <td id="disc" >Disciplina {{ selectedDisciplina.title }}  &nbsp;&nbsp; Carga Horária</td>
+ </tr>
+ <tr>
+   <td id="disc" >Professor Responsável <b>Evaldo ainda deve implementar</b> &nbsp;Teoria&nbsp;Prática&nbsp;Total </td>
+ </tr>
+  <tr>
+    <td id="disc" > Coordenador <b>Evaldo ainda deve implementar</b> &nbsp;{{ horasTeoria }}&nbsp;{{ horasPratica }}&nbsp;{{ horasTeoria + horasPratica }}</td>
+  </tr>
+  <tr>
+    <td id="disc" >  Atualização&nbsp;{{ dataAtual }} &nbsp; Validação - NDE {{ dataAtual }} </td>
+  </tr>
+</table> 
 </div><br><br>
 
-<div style="text-align:center">
-  Disciplina {{ selectedDisciplina.title }} &nbsp;&nbsp; Carga Horária<br>
-  Professor Responsável <b>Evaldo ainda deve implementar</b> &nbsp;Teoria&nbsp;Prática&nbsp;Total<br>
-  Coordenador <b>Evaldo ainda deve implementar</b> &nbsp;{{ horasTeoria }}&nbsp;{{ horasPratica }}&nbsp;{{ horasTeoria + horasPratica }} <br>
-  Atualização&nbsp;{{ dataAtual }} &nbsp; Validação - NDE {{ dataAtual }} 
-</div><br><br>
+<table id="tb2"  style="text-align:left">
+  <tr>
+    <td id="b2"> <b class="t">Ementa:</b></td>
+  </tr>
+  <tr>
+    <td  class="tab1"> {{ selectedDisciplina.ementa }}</td>
+  </tr>
+  
+</table><br>
 
-<div style="text-align:left">
-  <b>Ementa:</b><br>
-  {{ selectedDisciplina.ementa }}
-</div><br>
-
-<div style="text-align:left">
-  <b>Objetivos:</b><br>
-
+<table id="tb2" style="text-align:left">
+  <tr>
+    <td id="b2"> <b class="t">Objetivos:</b> </td>
+  </tr> 
+<table>
   <ul>
     <li *ngFor="let obj of objetivos">
-      {{ obj.objetivo.title }}
+      <tr>
+     <td class="tab1"> <b cla> {{ obj.objetivo.title }}</b> </td>
+     </tr>
     </li>
-  </ul><br>
-
+  </ul>
+</table>
   <p>Esta disciplina contribui com o desenvolvimento dos seguintes objetivos e competências
      do egresso estabelecidos para o curso no PPC: </p>
 
@@ -43,7 +62,7 @@
       {{ hab.habilidade.title }}
     </li>
   </ul><br>
-</div><br>
+</table><br>
 
 <div style="text-align:left">
     <b>Conteúdo Programático:</b><br>

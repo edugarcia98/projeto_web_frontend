@@ -87,17 +87,6 @@ table{
     margin-left: 49%;
     width: 275%;
 }
-li{
-    font-size: 10px;
-    color: black;
-    display:inline;
-	float:left;
-	width:50%;
-	margin-left:1px;
-	border:1px solid black;
-	text-align:center;
-    
-}
 .t2{
     background: darkblue;
     font-size: 20px;
@@ -197,6 +186,80 @@ li{
     float:left;
     height: 60px;
 	width:305%;
+	border:1px solid black;
+	text-align:center;
+}
+.tab{
+    margin-left: 43%;
+    width: 50%;
+    height: 10px;
+}
+.tab4{
+    margin-left: 80%;
+    font-size: 20px;
+    display:inline;
+    float:left;
+    height: 40px;
+	width:305%;
+	border:1px solid black;
+	text-align:center;
+}
+.tab1{
+    margin-left: 0%;
+    font-size: 20px;
+    display:inline;
+    float:left;
+    height: 40px;
+	width:70%;
+	border:1px solid black;
+	text-align:center;
+}
+.tab2{
+    margin-left: 70%;
+    margin-top: -15%;
+    font-size: 20px;
+    display:inline;
+    float:left;
+    height: 40px;
+	width:69%;
+	border:1px solid black;
+	text-align:center;
+}
+.tab3{
+    margin-left: 139%;
+    font-size: 20px;
+    margin-top: -15%;
+    display:inline;
+    float:left;
+    height: 40px;
+	width:70%;
+	border:1px solid black;
+	text-align:center;
+}
+.tab4{
+    margin-left: 208%;
+    margin-top: -15%;
+    font-size: 20px;
+    display:inline;
+    float:left;
+    height: 40px;
+	width:70%;
+	border:1px solid black;
+	text-align:center;
+}
+.tab5{
+    margin-left: 278%;
+    margin-top: -15%;
+    font-size: 20px;
+    display:inline;
+    float:left;
+    height: 40px;
+	width:70%;
+	border:1px solid black;
+	text-align:center;
+}
+.tab12{
+    width:200%;
 	border:1px solid black;
 	text-align:center;
 }
